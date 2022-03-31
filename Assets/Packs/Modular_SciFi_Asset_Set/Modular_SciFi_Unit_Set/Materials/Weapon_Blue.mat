@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TowerTurret
+  m_Name: Weapon_Blue
   m_Shader: {fileID: 4800000, guid: 0a493753a7a026b44ae92b7eb3f089a1, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -40,11 +40,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 30c6832d93682c34d91606d9887e2e40, type: 3}
+        m_Texture: {fileID: 2800000, guid: ac6cccd952e6a8b449f44be86dce5375, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
-        m_Texture: {fileID: 2800000, guid: a000a2583fcea56469b11f0132e4d78c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 22466b51ad8e8004691defa16833d1fd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -76,7 +76,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color1: {r: 0.88235295, g: 0.88235295, b: 0.88235295, a: 1}
-    - _Color2: {r: 0, g: 0.18460202, b: 1, a: 1}
+    - _Color2: {r: 0, g: 0.17592597, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

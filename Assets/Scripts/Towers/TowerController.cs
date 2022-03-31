@@ -7,6 +7,8 @@ public class TowerController : MonoBehaviour
     public GameObject target;
     public GameObject towerRotationBase;
 
+    public bool turretTrackTarget;
+
     public float towerAttackRange;
     public TowerTargeter towerTargeter;
 
@@ -19,7 +21,10 @@ public class TowerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LookAtTarget();
+        if (turretTrackTarget)
+        {
+            LookAtTarget();
+        }
     }
 
     void LookAtTarget()

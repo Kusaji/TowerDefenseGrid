@@ -285,7 +285,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 86049971c281a0b4fb243a437c24386d, type: 2}
+  - {fileID: 2100000, guid: 2965d74d106d58f46a55eeae894d08ec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -479,7 +479,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 86049971c281a0b4fb243a437c24386d, type: 2}
+  - {fileID: 2100000, guid: 2965d74d106d58f46a55eeae894d08ec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -924,6 +924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   towerRotationBase: {fileID: 6349915813123095800}
+  turretTrackTarget: 1
   towerAttackRange: 20
   towerTargeter: {fileID: 6349915812053547615}
 --- !u!114 &6367757892166917677

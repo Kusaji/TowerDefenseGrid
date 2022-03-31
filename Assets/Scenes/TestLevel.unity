@@ -23267,7 +23267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
       propertyPath: logDebugs
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
       propertyPath: spawnRate
