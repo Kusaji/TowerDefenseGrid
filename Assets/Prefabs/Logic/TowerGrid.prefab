@@ -673,6 +673,7 @@ Transform:
   m_Children:
   - {fileID: 4965403164076239198}
   - {fileID: 271927207060262324}
+  - {fileID: 7805869032353569659}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -757,6 +758,7 @@ MonoBehaviour:
   towerPrefabs:
   - {fileID: 6367757892166917674, guid: 2f4bc5e7617c9ae47940ab74bb34a87f, type: 3}
   - {fileID: 5925620237698651913, guid: 9fc36ddb5f7a0c14e932b60ba6fbb6b0, type: 3}
+  hologramEffect: {fileID: 7805869032353828383}
 --- !u!1 &9147628335318772987
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,3 +854,82 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &7805869032354016467
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4970283074322918072}
+    m_Modifications:
+    - target: {fileID: 189132, guid: 9705057267acf3148b75f81128b419e7, type: 3}
+      propertyPath: m_Name
+      value: HologramBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 456616, guid: 9705057267acf3148b75f81128b419e7, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 456616, guid: 9705057267acf3148b75f81128b419e7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.675
+      objectReference: {fileID: 0}
+    - target: {fileID: 456616, guid: 9705057267acf3148b75f81128b419e7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.67499995
+      objectReference: {fileID: 0}
+    - target: {fileID: 456616, guid: 9705057267acf3148b75f81128b419e7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3499999
+      objectReference: {fileID: 0}
+    - target: {fileID: 456616, guid: 9705057267acf3148b75f81128b419e7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.471
+      objectReference: {fileID: 0}
+    - target: {fileID: 456616, guid: 9705057267acf3148b75f81128b419e7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 456616, guid: 9705057267acf3148b75f81128b419e7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.484
+      objectReference: {fileID: 0}
+    - target: {fileID: 456616, guid: 9705057267acf3148b75f81128b419e7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 456616, guid: 9705057267acf3148b75f81128b419e7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 456616, guid: 9705057267acf3148b75f81128b419e7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456616, guid: 9705057267acf3148b75f81128b419e7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456616, guid: 9705057267acf3148b75f81128b419e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 456616, guid: 9705057267acf3148b75f81128b419e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456616, guid: 9705057267acf3148b75f81128b419e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9705057267acf3148b75f81128b419e7, type: 3}
+--- !u!1 &7805869032353828383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 189132, guid: 9705057267acf3148b75f81128b419e7, type: 3}
+  m_PrefabInstance: {fileID: 7805869032354016467}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7805869032353569659 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 456616, guid: 9705057267acf3148b75f81128b419e7, type: 3}
+  m_PrefabInstance: {fileID: 7805869032354016467}
+  m_PrefabAsset: {fileID: 0}

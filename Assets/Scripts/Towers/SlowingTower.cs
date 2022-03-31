@@ -13,6 +13,7 @@ public class SlowingTower : MonoBehaviour
     public float attackCooldown;
 
     private Animator animator;
+    public ParticleSystem particles;
 
 
 
@@ -39,6 +40,7 @@ public class SlowingTower : MonoBehaviour
             enemies.Clear();
 
             animator.SetTrigger("Attack");
+            particles.Play();
 
             RaycastHit[] hits = Physics.SphereCastAll(transform.position, controller.towerAttackRange, transform.forward);
 
