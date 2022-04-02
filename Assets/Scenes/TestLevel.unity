@@ -5340,7 +5340,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 539129539}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
@@ -5358,7 +5358,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 539129539}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 58.6, y: -0, z: 9.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7352,7 +7352,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 0.98985136, b: 0.6650944, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -7411,7 +7411,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: -2.7207737, y: -5.443515, z: 10.294058}
+  m_LocalPosition: {x: 53.02923, y: 27.056484, z: 10.294058}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 608003444}
@@ -23267,7 +23267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
       propertyPath: logDebugs
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
       propertyPath: spawnRate
@@ -23287,7 +23287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
       propertyPath: levelWaves.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
       propertyPath: Spawnpoints.Array.size
@@ -23329,6 +23329,10 @@ PrefabInstance:
       propertyPath: levelWaves.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: c703ebb15d9bb434683f6ed933859384, type: 2}
+    - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
+      propertyPath: levelWaves.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: a82a9cf722d34e740be7c9cbf9ff9d40, type: 2}
     - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
       propertyPath: Spawnpoints.Array.data[0]
       value: 
