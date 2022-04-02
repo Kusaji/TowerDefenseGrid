@@ -9,11 +9,14 @@ public class TowerGrid : MonoBehaviour
     public GameObject towerSlot;
     public List<GameObject> towerPrefabs;
 
+    public GameObject hologramEffect;
+
 
     // Start is called before the first frame update
     void Start()
     {
         emptyGrid = true;
+        hologramEffect.SetActive(true);
     }
 
     // Update is called once per frame
@@ -46,6 +49,7 @@ public class TowerGrid : MonoBehaviour
                 towerSlot.transform);
 
             emptyGrid = false;
+            hologramEffect.SetActive(false);
             CloseShopMenu();
         }
     }

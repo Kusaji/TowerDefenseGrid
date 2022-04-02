@@ -58,6 +58,36 @@ public class EnemyNavigation : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+
+    /// <summary>
+    /// Slows enemy agent.
+    /// Amount is percentage based.
+    /// </summary>
+    /// <param name="amount"></param>
+    /// <param name="duration"></param>
+    public void SlowAgent(float amount, float duration)
+    {
+        if (health.isAlive)
+        {
+            StartCoroutine(SlowRoutine(amount, duration));
+        }
+    }
+
+    IEnumerator SlowRoutine(float amount, float duration)
+    {
+        var originalSpeed = speed;
+        var slowedSpeed = originalSpeed * amount;
+
+
+        speed = slowedSpeed;
+        agent.speed = speed;
+
+        yield return new WaitForSeconds(duration);
+
+        speed = originalSpeed;
+        agent.speed = speed;
 
     }
 }

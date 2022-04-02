@@ -38,10 +38,8 @@ public class EnemyHealth : MonoBehaviour
     {
         isAlive = false;
         //Destroy agent as enemy is dead.
-        Destroy(GetComponent<NavMeshAgent>());
-
+        GetComponent<NavMeshAgent>().enabled = false;
         GetComponentInChildren<Animator>().enabled = false;
-
         GetComponent<BoxCollider>().isTrigger = false;
 
         //Set rigidbody to kinematic and ragdoll them out of existence
