@@ -38,6 +38,7 @@ public class EnemyHealth : MonoBehaviour
     {
         isAlive = false;
         //Destroy agent as enemy is dead.
+
         GetComponent<NavMeshAgent>().enabled = false;
         GetComponentInChildren<Animator>().enabled = false;
         GetComponent<BoxCollider>().isTrigger = false;

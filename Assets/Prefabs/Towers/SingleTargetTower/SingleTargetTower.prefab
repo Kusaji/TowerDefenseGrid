@@ -940,8 +940,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 4161426428061981704}
-  attacksPerSecond: 100
-  attackDamageFloor: 1
+  attacksPerSecond: 2
+  attackDamageFloor: 2
   attackDamageCeiling: 4
 --- !u!1 &6367757892167077420
 GameObject:

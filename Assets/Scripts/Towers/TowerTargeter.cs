@@ -23,6 +23,10 @@ public class TowerTargeter : MonoBehaviour
         transform.localScale = newRange;
     }
 
+    //Retarget each new enemy
+    //OnTriggerEnter
+
+    //Lock On
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy") && controller.target == null)
