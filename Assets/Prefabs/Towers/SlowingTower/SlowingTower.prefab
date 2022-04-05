@@ -385,7 +385,7 @@ MonoBehaviour:
   enemies: []
   slowPercentage: 0.5
   slowDuration: 3
-  attackCooldown: 10
+  attackCooldown: 5
   particles: {fileID: 4910296689423342475}
 --- !u!1 &5944106012083369435
 GameObject:

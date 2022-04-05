@@ -48,7 +48,7 @@ public class TowerAttacker : MonoBehaviour
                     controller.target = null;
                 }
             }
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForFixedUpdate();
         }
     }
 }
