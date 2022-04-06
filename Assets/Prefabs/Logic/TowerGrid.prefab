@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 5992337385519548475}
   - component: {fileID: 5842179668650430421}
   m_Layer: 0
-  m_Name: Text
+  m_Name: SlowingTowerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 4965403163922491978}
   - component: {fileID: 4965403163922491977}
   m_Layer: 0
-  m_Name: Text
+  m_Name: BasicTowerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 4965403164076239201}
   - component: {fileID: 4965403164076239200}
   - component: {fileID: 4965403164076239199}
-  - component: {fileID: 4169110866997374049}
+  - component: {fileID: 998834259097142919}
   m_Layer: 0
   m_Name: TowerShop
   m_TagString: Untagged
@@ -525,7 +525,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4169110866997374049
+--- !u!114 &998834259097142919
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -534,10 +534,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4965403164076239197}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a236e23e6b1c784bb7166776918c2a1, type: 3}
+  m_Script: {fileID: 11500000, guid: e405826d1feb2c04ca1be45730053d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 0}
+  towerGrid: {fileID: 4966682745516704761}
+  basicTower: {fileID: 4965403163922491977}
+  slowingTower: {fileID: 5842179668650430421}
 --- !u!1 &4965403164737276779
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,7 +553,7 @@ GameObject:
   - component: {fileID: 4965403164737276781}
   - component: {fileID: 7242231859941292877}
   m_Layer: 0
-  m_Name: Panel
+  m_Name: UIPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -759,6 +761,7 @@ MonoBehaviour:
   - {fileID: 6367757892166917674, guid: 2f4bc5e7617c9ae47940ab74bb34a87f, type: 3}
   - {fileID: 5925620237698651913, guid: 9fc36ddb5f7a0c14e932b60ba6fbb6b0, type: 3}
   hologramEffect: {fileID: 7805869032353828383}
+  shopPrice: {fileID: 998834259097142919}
 --- !u!1 &9147628335318772987
 GameObject:
   m_ObjectHideFlags: 0

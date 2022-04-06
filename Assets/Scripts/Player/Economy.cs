@@ -16,7 +16,7 @@ public class Economy : MonoBehaviour
     {
         moneyText = GameObject.Find("MoneyText").GetComponent<Text>();
         playerMoney = startingMoney;
-        moneyText.text = $"Money: {playerMoney}";
+        moneyText.text = $"Credits: {playerMoney}";
 
         StartCoroutine(UpdateUIText());
     }
@@ -31,7 +31,7 @@ public class Economy : MonoBehaviour
     {
         while (gameObject)
         {
-            moneyText.text = $"Money: {playerMoney}";
+            moneyText.text = $"Credits: {playerMoney}";
             yield return new WaitForSeconds(0.1f);
         }
 

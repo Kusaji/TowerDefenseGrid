@@ -11,6 +11,8 @@ public class TowerGrid : MonoBehaviour
 
     public GameObject hologramEffect;
 
+    public ShopPriceSetter shopPrice;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,7 @@ public class TowerGrid : MonoBehaviour
         if (emptyGrid)
         {
             towerShopObject.SetActive(true);
+            shopPrice.UpdatePrices();
         }
     }
 
