@@ -1,17 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TowerGrid : MonoBehaviour
 {
     public bool emptyGrid;
     public GameObject towerShopObject;
+    public GameObject upgradeShopObject;
     public GameObject towerSlot;
     public List<GameObject> towerPrefabs;
 
     public GameObject hologramEffect;
 
     public ShopPriceSetter shopPrice;
+    public Text upgradeText;
+
+    private TowerUpgrades currentTower;
 
 
     // Start is called before the first frame update
@@ -34,11 +39,18 @@ public class TowerGrid : MonoBehaviour
             towerShopObject.SetActive(true);
             shopPrice.UpdatePrices();
         }
+        else if (!emptyGrid)
+        {
+            upgradeShopObject.SetActive(true);
+            currentTower = GetComponentInChildren<TowerUpgrades>();
+            upgradeText.text = $"Upgrade Cost: {currentTower.GetUpgradeCost()}";
+        }
     }
 
     public void CloseShopMenu()
     {
         towerShopObject.SetActive(false);
+        upgradeShopObject.SetActive(false);
     }
 
     public void BuyTower(int towerPrefabNum)
@@ -62,4 +74,13 @@ public class TowerGrid : MonoBehaviour
         }
     }
 
+    public void UpgradeTower()
+    {
+        if (Economy.playerMoney >= currentTower.GetUpgradeCost() && currentTower.currentLevel < 3)
+        {
+            Economy.playerMoney -= currentTower.GetUpgradeCost();
+            currentTower.currentLevel++;
+            CloseShopMenu();
+        }
+    }
 }

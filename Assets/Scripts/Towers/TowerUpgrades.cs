@@ -34,4 +34,20 @@ public class TowerUpgrades : MonoBehaviour
             }
         }
     }
+
+    public int GetUpgradeCost()
+    {
+        if (currentLevel == 1)
+        {
+            return level2UpgradeCost;
+        }
+        else if (currentLevel == 2)
+        {
+            return level3UpgradeCost;
+        }
+        else
+        {
+            return 0;
+        }
+    }
 }
