@@ -11,6 +11,7 @@ public class TowerController : MonoBehaviour
 
     public float towerAttackRange;
     public TowerTargeter towerTargeter;
+    public float turretTrackingSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +32,9 @@ public class TowerController : MonoBehaviour
     {
         if (target != null)
         {
-            //towerRotationBase.transform.localRotation = Quaternion.Euler(new Vector3(90, 0, 0));
-            //towerRotationBase.transform.right = (target.transform.position - transform.position);
-            towerRotationBase.transform.LookAt(target.transform.position);
+            Vector3 relativePos = target.transform.position - towerRotationBase.transform.position;
+            Quaternion toRotation = Quaternion.LookRotation(relativePos);
+            towerRotationBase.transform.rotation = Quaternion.Lerp(towerRotationBase.transform.rotation, toRotation, turretTrackingSpeed * Time.deltaTime);
         }
     }
 }

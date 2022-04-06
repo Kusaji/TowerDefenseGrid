@@ -15425,6 +15425,7 @@ MonoBehaviour:
   turretTrackTarget: 1
   towerAttackRange: 20
   towerTargeter: {fileID: 6349915812053547615}
+  turretTrackingSpeed: 3
 --- !u!114 &6367757892166917677
 MonoBehaviour:
   m_ObjectHideFlags: 0
