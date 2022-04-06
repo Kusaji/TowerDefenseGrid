@@ -10,9 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b14b0b97b2a7e3b48883dccc639fc0e8, type: 3}
-  m_Name: LightWave2
+  m_Name: MixedLightWave 1-1
   m_EditorClassIdentifier: 
-  randomEnemySelections: 0
+  randomEnemySelections: 1
   enemyPrefabs:
   - {fileID: 80753716167874608, guid: 301a4249b84f5994e9f01e729955bd42, type: 3}
-  enemiesToSpawn: 7
+  - {fileID: 80753716167874608, guid: 9fb6aa10c0929b145b12539698b1e23d, type: 3}
+  enemiesToSpawn: 20
+  spawnDelay: 1
+  waveEndDelay: 5
+  healthMultiplier: 2

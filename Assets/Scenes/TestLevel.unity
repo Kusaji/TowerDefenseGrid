@@ -5696,7 +5696,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -16832,7 +16832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e0506e88ca5d04fa7cc626d1f2efdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingMoney: 5000
+  startingMoney: 50
 --- !u!4 &1631574369
 Transform:
   m_ObjectHideFlags: 0
@@ -23762,7 +23762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
       propertyPath: levelWaves.Array.size
-      value: 3
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
       propertyPath: Spawnpoints.Array.size
@@ -23803,11 +23803,31 @@ PrefabInstance:
     - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
       propertyPath: levelWaves.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: c703ebb15d9bb434683f6ed933859384, type: 2}
+      objectReference: {fileID: 11400000, guid: 46ab5b7c105127e40a7b1e2aeecc4453, type: 2}
     - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
       propertyPath: levelWaves.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: a82a9cf722d34e740be7c9cbf9ff9d40, type: 2}
+      objectReference: {fileID: 11400000, guid: 04877646be9ec5f459e287bdbe5951ce, type: 2}
+    - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
+      propertyPath: levelWaves.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 04877646be9ec5f459e287bdbe5951ce, type: 2}
+    - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
+      propertyPath: levelWaves.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8afeac193c511c14c8c8f4fcd6e5cd50, type: 2}
+    - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
+      propertyPath: levelWaves.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8afeac193c511c14c8c8f4fcd6e5cd50, type: 2}
+    - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
+      propertyPath: levelWaves.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 268dfea4d3cd7744292243c01761f682, type: 2}
+    - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
+      propertyPath: levelWaves.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 268dfea4d3cd7744292243c01761f682, type: 2}
     - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
       propertyPath: Spawnpoints.Array.data[0]
       value: 

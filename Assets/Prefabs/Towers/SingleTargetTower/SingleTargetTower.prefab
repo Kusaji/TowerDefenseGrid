@@ -15444,7 +15444,7 @@ MonoBehaviour:
   level3Visuals: {fileID: 1151099637512998586}
   currentLevel: 0
   attacksPerSecond: 2
-  attackDamageFloor: 2
+  attackDamageFloor: 3
   attackDamageCeiling: 4
   shootSound: {fileID: 8300000, guid: 0786f50b0332e1d459f5cb7a9ca501af, type: 3}
   upgradeSound: {fileID: 8300000, guid: f1897e8f5b7681f4abf425ecb9d597ae, type: 3}
@@ -15488,7 +15488,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -15521,7 +15521,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

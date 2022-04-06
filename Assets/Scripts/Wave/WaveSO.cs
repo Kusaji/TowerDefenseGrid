@@ -11,4 +11,5 @@ public class WaveSO : ScriptableObject
 
     public float spawnDelay;
     public float waveEndDelay;
+    public float healthMultiplier;
 }

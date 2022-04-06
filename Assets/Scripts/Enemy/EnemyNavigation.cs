@@ -10,6 +10,8 @@ public class EnemyNavigation : MonoBehaviour
     public int waypointnum;
     public float speed;
 
+    public bool isSlowed;
+
     public EnemySpawner enemySpawner;
 
     public EnemyHealth health;
@@ -32,6 +34,8 @@ public class EnemyNavigation : MonoBehaviour
 
         target = enemySpawner.Spawnpoints[waypointnum];
         agent.SetDestination(target.transform.position);
+
+        isSlowed = false;
 
 
     }
@@ -69,7 +73,7 @@ public class EnemyNavigation : MonoBehaviour
     /// <param name="duration"></param>
     public void SlowAgent(float amount, float duration)
     {
-        if (health.isAlive)
+        if (health.isAlive && !isSlowed)
         {
             StartCoroutine(SlowRoutine(amount, duration));
         }
@@ -79,6 +83,7 @@ public class EnemyNavigation : MonoBehaviour
     {
         var originalSpeed = speed;
         var slowedSpeed = originalSpeed * amount;
+        isSlowed = true;
 
 
         speed = slowedSpeed;
@@ -88,6 +93,8 @@ public class EnemyNavigation : MonoBehaviour
 
         speed = originalSpeed;
         agent.speed = speed;
+        isSlowed = false;
+
 
     }
 }

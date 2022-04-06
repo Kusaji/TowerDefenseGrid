@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public List<GameObject> Spawnpoints;
-    //public List<GameObject> enemyPrefabs;
 
     public bool logDebugs;
 
@@ -19,27 +18,19 @@ public class EnemySpawner : MonoBehaviour
     [Header("Design Levels waves here")]
     public List<WaveSO> levelWaves;
 
+    public float healthMultiplier;
 
-    //public List<int> enemyWaves;
-    //public int enemiesLeftInWave;
-    //public bool noEnemiesLeft;
-    // Start is called before the first frame update
     void Start()
     {
-        /*        noEnemiesLeft = false;
-                enemiesLeftInWave = enemyWaves[0];*/
         wave = 0;
+        StartCoroutine(DelayFirstWave());
+    }
 
-
+    IEnumerator DelayFirstWave()
+    {
+        yield return new WaitForSeconds(5f);
         StartCoroutine(SpawnRoutine(levelWaves[wave]));
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 
     IEnumerator SpawnRoutine(WaveSO currentWave)
     {
@@ -48,6 +39,7 @@ public class EnemySpawner : MonoBehaviour
 
         spawnDelay = currentWave.spawnDelay;
         waveEndDelay = currentWave.waveEndDelay;
+        healthMultiplier = currentWave.healthMultiplier;
 
         while (enemiesSpawned < enemiesToSpawn)
         {
@@ -58,12 +50,17 @@ public class EnemySpawner : MonoBehaviour
 
             if (currentWave.randomEnemySelections == true)
             {
-                Instantiate(
+                var newEnemy = Instantiate(
                     currentWave.enemyPrefabs[Random.Range(0, currentWave.enemyPrefabs.Count)],
                     Spawnpoints[0].transform.position,
                     Quaternion.identity,
                     GameObject.Find("Enemies").transform);
                 enemiesSpawned++;
+
+                if (healthMultiplier > 1)
+                {
+                    newEnemy.GetComponent<EnemyHealth>().currenthealth *= healthMultiplier;
+                }
                 yield return new WaitForSeconds(spawnDelay);
             }
             else
@@ -105,30 +102,4 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
-
-    //Scrapped Code I'm emotionally attached to.
-    /*    IEnumerator SpawnRoutine()
-        {
-            while (noEnemiesLeft == false)
-            {
-                if (enemiesLeftInWave > 0)
-                {
-                    Instantiate(enemyPrefabs[0], Spawnpoints[0].transform.position, Quaternion.identity, GameObject.Find("Enemies").transform);
-                    enemiesLeftInWave--;
-                    yield return new WaitForSeconds(spawnRate);
-                }
-                else if (currentWave < enemyWaves.Count - 1)
-                {
-                    currentWave++;
-                    enemiesLeftInWave = enemyWaves[currentWave];
-                    yield return new WaitForSeconds(waveEndDelay);
-                }
-                else
-                {
-                    Debug.Log("All waves spawned.");
-                    noEnemiesLeft = true;
-                }
-                yield return new WaitForSeconds(0.1f);
-            }
-        }*/
 }
