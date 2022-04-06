@@ -24,6 +24,7 @@ public class TowerGrid : MonoBehaviour
     {
         emptyGrid = true;
         hologramEffect.SetActive(true);
+        
     }
 
     // Update is called once per frame
@@ -34,15 +35,15 @@ public class TowerGrid : MonoBehaviour
 
     public void OpenShopMenu()
     {
+
         if (emptyGrid)
         {
             towerShopObject.SetActive(true);
             shopPrice.UpdatePrices();
         }
-        else if (!emptyGrid)
+        else if (!emptyGrid && currentTower.currentLevel < 3)
         {
             upgradeShopObject.SetActive(true);
-            currentTower = GetComponentInChildren<TowerUpgrades>();
             upgradeText.text = $"Upgrade Cost: {currentTower.GetUpgradeCost()}";
         }
     }
@@ -71,6 +72,8 @@ public class TowerGrid : MonoBehaviour
             emptyGrid = false;
             hologramEffect.SetActive(false);
             CloseShopMenu();
+
+            currentTower = GetComponentInChildren<TowerUpgrades>();
         }
     }
 

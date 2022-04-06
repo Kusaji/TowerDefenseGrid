@@ -15,13 +15,22 @@ public class SlowingTower : MonoBehaviour
     private Animator animator;
     public ParticleSystem particles;
 
+    public TowerUpgrades towerUpgrades;
+    public int currentLevel;
+
+    public AudioClip attackSound;
+    private AudioSource speaker;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        speaker = GetComponent<AudioSource>();
+
         StartCoroutine(AttackRoutine());
+        currentLevel = 1;
 
     }
 
@@ -31,16 +40,43 @@ public class SlowingTower : MonoBehaviour
 
     }
 
+    public void CheckUpgradeLevel()
+    {
+        if (towerUpgrades.currentLevel == 2 && currentLevel == 1)
+        {
+            slowDuration *= 1.5f;
+            slowPercentage *= 1.25f;
+            attackCooldown -= 1;
+            currentLevel = towerUpgrades.currentLevel;
+        }
+        else if (towerUpgrades.currentLevel == 3 && currentLevel == 2)
+        {
+            slowDuration *= 1.5f;
+            slowPercentage *= 1.25f;
+            attackCooldown -= 1;
+            currentLevel = towerUpgrades.currentLevel;
+        }
+    }
+
+    public void AttackEffects()
+    {
+        speaker.PlayOneShot(attackSound, 0.4f);
+        animator.SetTrigger("Attack");
+        particles.Play();
+    }
+
     IEnumerator AttackRoutine()
     {
         //always true to loop indefinitely
         while (gameObject)
         {
-
+            if (currentLevel != 3)
+            {
+                CheckUpgradeLevel();
+            }
             enemies.Clear();
 
-            animator.SetTrigger("Attack");
-            particles.Play();
+            AttackEffects();
 
             RaycastHit[] hits = Physics.SphereCastAll(transform.position, controller.towerAttackRange, transform.forward);
 
