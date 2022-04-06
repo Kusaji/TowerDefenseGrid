@@ -16,3 +16,5 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 80753716167874608, guid: 301a4249b84f5994e9f01e729955bd42, type: 3}
   enemiesToSpawn: 5
+  spawnDelay: 2
+  waveEndDelay: 5

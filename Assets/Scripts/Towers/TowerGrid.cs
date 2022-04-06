@@ -40,8 +40,13 @@ public class TowerGrid : MonoBehaviour
 
     public void BuyTower(int towerPrefabNum)
     {
-        if (emptyGrid)
+        var selectedTower = towerPrefabs[towerPrefabNum].gameObject;
+        var selectedTowerCost = selectedTower.GetComponent<TowerUpgrades>().towerCost;
+
+        if (emptyGrid && Economy.playerMoney >= selectedTowerCost)
         {
+            Economy.playerMoney -= selectedTowerCost;
+
             Instantiate(
                 towerPrefabs[towerPrefabNum], 
                 towerSlot.transform.position, 

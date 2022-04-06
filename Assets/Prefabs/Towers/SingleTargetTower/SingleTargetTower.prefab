@@ -819,6 +819,7 @@ GameObject:
   - component: {fileID: 7506576838825138146}
   - component: {fileID: 4161426428061981704}
   - component: {fileID: 6367757892166917677}
+  - component: {fileID: 3345189451649689024}
   m_Layer: 0
   m_Name: SingleTargetTower
   m_TagString: Untagged
@@ -943,6 +944,21 @@ MonoBehaviour:
   attacksPerSecond: 2
   attackDamageFloor: 2
   attackDamageCeiling: 4
+--- !u!114 &3345189451649689024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6367757892166917674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d71151c8040864db1d44b8ee704808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerCost: 50
+  level2UpgradeCost: 100
+  level3UpgradeCost: 200
 --- !u!1 &6367757892167077420
 GameObject:
   m_ObjectHideFlags: 0

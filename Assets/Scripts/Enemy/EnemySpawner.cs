@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     public bool logDebugs;
 
     [Header("Wave Spawnrate Settings")]
-    public float spawnRate;
+    public float spawnDelay;
     public float waveEndDelay;
 
     [Header("Don't Change This")]
@@ -29,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
         /*        noEnemiesLeft = false;
                 enemiesLeftInWave = enemyWaves[0];*/
         wave = 0;
-        spawnRate = 1 / spawnRate;
+
 
         StartCoroutine(SpawnRoutine(levelWaves[wave]));
     }
@@ -46,6 +46,9 @@ public class EnemySpawner : MonoBehaviour
         var enemiesToSpawn = currentWave.enemiesToSpawn;
         var enemiesSpawned = 0;
 
+        spawnDelay = currentWave.spawnDelay;
+        waveEndDelay = currentWave.waveEndDelay;
+
         while (enemiesSpawned < enemiesToSpawn)
         {
             if (logDebugs)
@@ -61,7 +64,7 @@ public class EnemySpawner : MonoBehaviour
                     Quaternion.identity,
                     GameObject.Find("Enemies").transform);
                 enemiesSpawned++;
-                yield return new WaitForSeconds(spawnRate);
+                yield return new WaitForSeconds(spawnDelay);
             }
             else
             {
@@ -71,7 +74,7 @@ public class EnemySpawner : MonoBehaviour
                     Quaternion.identity,
                     GameObject.Find("Enemies").transform);
                 enemiesSpawned++;
-                yield return new WaitForSeconds(spawnRate);
+                yield return new WaitForSeconds(spawnDelay);
 
             }
             yield return new WaitForSeconds(0.1f);

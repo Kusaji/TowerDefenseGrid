@@ -9,4 +9,6 @@ public class WaveSO : ScriptableObject
     public List<GameObject> enemyPrefabs;
     public int enemiesToSpawn;
 
+    public float spawnDelay;
+    public float waveEndDelay;
 }

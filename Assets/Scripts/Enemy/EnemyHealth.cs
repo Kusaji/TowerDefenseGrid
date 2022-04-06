@@ -10,6 +10,8 @@ public class EnemyHealth : MonoBehaviour
     public float currenthealth;
     public bool isAlive;
 
+    public int mobValue;
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,9 @@ public class EnemyHealth : MonoBehaviour
         GetComponent<NavMeshAgent>().enabled = false;
         GetComponentInChildren<Animator>().enabled = false;
         GetComponent<BoxCollider>().isTrigger = false;
+
+        //Add money to player economy
+        Economy.playerMoney += mobValue;
 
         //Set rigidbody to kinematic and ragdoll them out of existence
         var rigidBody = GetComponent<Rigidbody>();

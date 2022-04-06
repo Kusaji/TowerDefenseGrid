@@ -115,6 +115,7 @@ MonoBehaviour:
   maxHealth: 15
   currenthealth: 0
   isAlive: 0
+  mobValue: 10
 --- !u!114 &80753716167874622
 MonoBehaviour:
   m_ObjectHideFlags: 0

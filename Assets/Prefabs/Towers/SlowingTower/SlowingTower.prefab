@@ -257,6 +257,7 @@ GameObject:
   - component: {fileID: 7083720177211186881}
   - component: {fileID: 3720678545503474987}
   - component: {fileID: 8226117255962475165}
+  - component: {fileID: 2927262562070351819}
   m_Layer: 0
   m_Name: SlowingTower
   m_TagString: Untagged
@@ -387,6 +388,21 @@ MonoBehaviour:
   slowDuration: 3
   attackCooldown: 5
   particles: {fileID: 4910296689423342475}
+--- !u!114 &2927262562070351819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5925620237698651913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d71151c8040864db1d44b8ee704808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerCost: 75
+  level2UpgradeCost: 150
+  level3UpgradeCost: 300
 --- !u!1 &5944106012083369435
 GameObject:
   m_ObjectHideFlags: 0
