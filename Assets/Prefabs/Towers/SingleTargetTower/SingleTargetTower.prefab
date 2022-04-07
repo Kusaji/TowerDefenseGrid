@@ -15438,17 +15438,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eda015ef60c6d064288ff6afce3878e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 4161426428061981704}
-  towerUpgrades: {fileID: 3345189451649689024}
-  level2Visuals: {fileID: 2005812319105055393}
-  level3Visuals: {fileID: 1151099637512998586}
   currentLevel: 0
   attacksPerSecond: 2
   attackDamageFloor: 3
   attackDamageCeiling: 4
+  controller: {fileID: 4161426428061981704}
+  towerUpgrades: {fileID: 3345189451649689024}
+  shootParticles: {fileID: 546396525633758310}
   shootSound: {fileID: 8300000, guid: 0786f50b0332e1d459f5cb7a9ca501af, type: 3}
   upgradeSound: {fileID: 8300000, guid: f1897e8f5b7681f4abf425ecb9d597ae, type: 3}
-  shootParticles: {fileID: 546396525633758310}
+  level2Visuals: {fileID: 2005812319105055393}
+  level3Visuals: {fileID: 1151099637512998586}
 --- !u!114 &3345189451649689024
 MonoBehaviour:
   m_ObjectHideFlags: 0

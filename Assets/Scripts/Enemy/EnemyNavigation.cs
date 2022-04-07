@@ -25,7 +25,7 @@ public class EnemyNavigation : MonoBehaviour
     void Start()
     {
 
-        waypointnum = 1;
+        waypointnum = 0;
         agent.speed = speed;
 
         var spawnpos = transform.position;
