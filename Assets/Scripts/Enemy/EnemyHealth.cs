@@ -12,10 +12,19 @@ public class EnemyHealth : MonoBehaviour
 
     public int mobValue;
 
+    private EnemySpawner spawner;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        spawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+
+        if (spawner.healthMultiplier > 1)
+        {
+            maxHealth *= spawner.healthMultiplier;
+        }
+
         currenthealth = maxHealth;
         isAlive = true;
     }

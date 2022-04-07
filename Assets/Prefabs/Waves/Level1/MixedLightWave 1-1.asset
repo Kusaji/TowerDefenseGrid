@@ -19,4 +19,4 @@ MonoBehaviour:
   enemiesToSpawn: 20
   spawnDelay: 1
   waveEndDelay: 5
-  healthMultiplier: 2
+  healthMultiplier: 1.5

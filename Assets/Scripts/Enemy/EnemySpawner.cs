@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -19,11 +20,13 @@ public class EnemySpawner : MonoBehaviour
     public List<WaveSO> levelWaves;
 
     public float healthMultiplier;
+    private Text waveText;
 
     void Start()
     {
         wave = 0;
         StartCoroutine(DelayFirstWave());
+        waveText = GameObject.Find("WaveText").GetComponent<Text>();
     }
 
     IEnumerator DelayFirstWave()
@@ -36,6 +39,8 @@ public class EnemySpawner : MonoBehaviour
     {
         var enemiesToSpawn = currentWave.enemiesToSpawn;
         var enemiesSpawned = 0;
+
+        waveText.text = $"Wave {wave + 1} | {levelWaves.Count}";
 
         spawnDelay = currentWave.spawnDelay;
         waveEndDelay = currentWave.waveEndDelay;
@@ -50,27 +55,24 @@ public class EnemySpawner : MonoBehaviour
 
             if (currentWave.randomEnemySelections == true)
             {
-                var newEnemy = Instantiate(
+                Instantiate(
                     currentWave.enemyPrefabs[Random.Range(0, currentWave.enemyPrefabs.Count)],
                     Spawnpoints[0].transform.position,
                     Quaternion.identity,
                     GameObject.Find("Enemies").transform);
                 enemiesSpawned++;
 
-                if (healthMultiplier > 1)
-                {
-                    newEnemy.GetComponent<EnemyHealth>().currenthealth *= healthMultiplier;
-                }
                 yield return new WaitForSeconds(spawnDelay);
             }
             else
             {
                 Instantiate(
-                    currentWave.enemyPrefabs[0],
-                    Spawnpoints[0].transform.position,
-                    Quaternion.identity,
-                    GameObject.Find("Enemies").transform);
+                     currentWave.enemyPrefabs[0],
+                     Spawnpoints[0].transform.position,
+                     Quaternion.identity,
+                     GameObject.Find("Enemies").transform);
                 enemiesSpawned++;
+
                 yield return new WaitForSeconds(spawnDelay);
 
             }

@@ -40,7 +40,7 @@ public class SingleTargetTower : MonoBehaviour
         speaker = GetComponent<AudioSource>();
         towerTargeter = GetComponentInChildren<TowerTargeter>();
 
-        speaker.PlayOneShot(upgradeSound, 0.6f);
+        speaker.PlayOneShot(upgradeSound, 1.0f);
 
         StartCoroutine(AttackRoutine());
         StartCoroutine(CheckForUpgrades());
@@ -82,7 +82,7 @@ public class SingleTargetTower : MonoBehaviour
 
             level3Visuals.SetActive(true);
 
-            speaker.PlayOneShot(upgradeSound, 0.6f);
+            speaker.PlayOneShot(upgradeSound, 1.0f);
 
             currentLevel = towerUpgrades.currentLevel;
         }
@@ -127,7 +127,7 @@ public class SingleTargetTower : MonoBehaviour
 
     public void ShootEffects()
     {
-        speaker.PlayOneShot(shootSound, 0.3f);
+        speaker.PlayOneShot(shootSound, 0.6f);
         animator.SetTrigger("Shoot");
         shootParticles.Play();
     }

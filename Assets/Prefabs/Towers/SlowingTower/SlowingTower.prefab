@@ -386,8 +386,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 3720678545503474987}
   enemies: []
-  slowPercentage: 0.5
-  slowDuration: 3
+  slowPercentage: 0.8
+  slowDuration: 2
   attackCooldown: 5
   particles: {fileID: 4910296689423342475}
   towerUpgrades: {fileID: 2927262562070351819}
