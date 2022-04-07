@@ -51,6 +51,7 @@ public class SingleTargetTower : MonoBehaviour
             attacksPerSecond++;
             calculatedAPS = 1 / attacksPerSecond;
 
+            //Change These Values
             attackDamageFloor *= 1.25f;
             attackDamageCeiling *= 1.25f;
 

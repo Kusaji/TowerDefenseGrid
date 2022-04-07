@@ -24065,7 +24065,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 730794236025414031, guid: fb8ad51bf17002e4d8b0a07cc6072fac, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Waypoint
       objectReference: {fileID: 0}
     - target: {fileID: 2264823745687559357, guid: fb8ad51bf17002e4d8b0a07cc6072fac, type: 3}
       propertyPath: m_RootOrder
