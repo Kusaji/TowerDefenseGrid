@@ -12,6 +12,7 @@ public class TowerGrid : MonoBehaviour
     public List<GameObject> towerPrefabs;
 
     public GameObject hologramEffect;
+    public GameObject purchaseEffect;
 
     public ShopPriceSetter shopPrice;
     public Text upgradeText;
@@ -74,6 +75,9 @@ public class TowerGrid : MonoBehaviour
             CloseShopMenu();
 
             currentTower = GetComponentInChildren<TowerUpgrades>();
+
+            var purchaseFX = Instantiate(purchaseEffect, towerSlot.transform.position, Quaternion.Euler(-90f, 180f, 0.0f), transform);
+            Destroy(purchaseFX, 2f);
         }
     }
 
@@ -84,6 +88,9 @@ public class TowerGrid : MonoBehaviour
             Economy.playerMoney -= currentTower.GetUpgradeCost();
             currentTower.currentLevel++;
             CloseShopMenu();
+
+            var purchaseFX = Instantiate(purchaseEffect, towerSlot.transform.position, Quaternion.Euler(-90f, 180f, 0.0f), transform);
+            Destroy(purchaseFX, 2f);
         }
     }
 }

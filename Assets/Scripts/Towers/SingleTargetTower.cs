@@ -4,30 +4,28 @@ using UnityEngine;
 
 public class SingleTargetTower : MonoBehaviour
 {
-    public TowerController controller;
-    public TowerUpgrades towerUpgrades;
-    private TowerTargeter towerTargeter;
-
-
-    public GameObject level2Visuals;
-    public GameObject level3Visuals;
-
+    [Header("Stats")]
     public int currentLevel;
-
     public float attacksPerSecond;
-    private float calculatedAPS;
     public float attackDamageFloor;
     public float attackDamageCeiling;
+    private float calculatedAPS;
 
-    public AudioClip shootSound;
-    public AudioClip upgradeSound;
-
+    [Header("Components")]
+    public TowerController controller;
+    public TowerUpgrades towerUpgrades;
     public ParticleSystem shootParticles;
-
+    private TowerTargeter towerTargeter;
     private Animator animator;
     private AudioSource speaker;
 
+    [Header("Audio")]
+    public AudioClip shootSound;
+    public AudioClip upgradeSound;
 
+    [Header("GameObject References")]
+    public GameObject level2Visuals;
+    public GameObject level3Visuals;
 
     // Start is called before the first frame update
     void Start()
@@ -44,12 +42,6 @@ public class SingleTargetTower : MonoBehaviour
 
         StartCoroutine(AttackRoutine());
         StartCoroutine(CheckForUpgrades());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void CheckUpgradeLevel()
@@ -127,7 +119,10 @@ public class SingleTargetTower : MonoBehaviour
 
     public void ShootEffects()
     {
-        speaker.PlayOneShot(shootSound, 0.6f);
+        //Add some variety to the audio.
+        speaker.pitch = Random.Range(0.90f, 1.10f);
+        speaker.PlayOneShot(shootSound, Random.Range(0.65f, 0.75f));
+
         animator.SetTrigger("Shoot");
         shootParticles.Play();
     }

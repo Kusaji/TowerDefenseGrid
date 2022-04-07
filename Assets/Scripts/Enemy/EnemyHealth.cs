@@ -13,12 +13,16 @@ public class EnemyHealth : MonoBehaviour
     public int mobValue;
 
     private EnemySpawner spawner;
+    private AudioSource speaker;
+
+    public GameObject deathExplosionPrefab;
 
 
     // Start is called before the first frame update
     void Start()
     {
         spawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+        speaker = GetComponent<AudioSource>();
 
         if (spawner.healthMultiplier > 1)
         {
@@ -27,6 +31,10 @@ public class EnemyHealth : MonoBehaviour
 
         currenthealth = maxHealth;
         isAlive = true;
+
+        speaker.pitch = Random.Range(0.80f, 1.20f);
+        speaker.volume = Random.Range(0.50f, 0.60f);
+        speaker.Play();
     }
 
     // Update is called once per frame
@@ -56,6 +64,9 @@ public class EnemyHealth : MonoBehaviour
 
         //Add money to player economy
         Economy.playerMoney += mobValue;
+
+        var explosion = Instantiate(deathExplosionPrefab, transform.position, Quaternion.identity);
+        Destroy(explosion, 2f);
 
         //Set rigidbody to kinematic and ragdoll them out of existence
         var rigidBody = GetComponent<Rigidbody>();

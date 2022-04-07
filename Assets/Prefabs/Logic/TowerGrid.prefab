@@ -1113,6 +1113,7 @@ MonoBehaviour:
   - {fileID: 6367757892166917674, guid: 2f4bc5e7617c9ae47940ab74bb34a87f, type: 3}
   - {fileID: 5925620237698651913, guid: 9fc36ddb5f7a0c14e932b60ba6fbb6b0, type: 3}
   hologramEffect: {fileID: 7805869032353828383}
+  purchaseEffect: {fileID: 4096394517616451281, guid: 1b6883c92656ba7478254fcc433939d0, type: 3}
   shopPrice: {fileID: 998834259097142919}
   upgradeText: {fileID: 1282859010768560272}
 --- !u!1 &6132148225984883643
