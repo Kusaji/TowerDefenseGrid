@@ -47,7 +47,7 @@ public class EnemyNavigation : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Waypoint") && health.isAlive)
+        if (other.gameObject == target.gameObject && health.isAlive)
         {
             if (waypointnum < enemySpawner.Spawnpoints.Count - 1)
             {
