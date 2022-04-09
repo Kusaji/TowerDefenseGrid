@@ -49,12 +49,20 @@ public class AOETower : MonoBehaviour
         {
             damage *= 1.5f;
             attackCooldown -= 0.5f;
+
+            controller.towerAttackRange += 2.5f;
+            GetComponentInChildren<TowerTargeter>().SetTargetingRange(controller.towerAttackRange);
+
             currentLevel = towerUpgrades.currentLevel;
         }
         else if (towerUpgrades.currentLevel == 3 && currentLevel == 2)
         {
             damage *= 1.5f;
             attackCooldown -= 0.5f;
+
+            controller.towerAttackRange += 2.5f;
+            GetComponentInChildren<TowerTargeter>().SetTargetingRange(controller.towerAttackRange);
+
             currentLevel = towerUpgrades.currentLevel;
         }
     }
