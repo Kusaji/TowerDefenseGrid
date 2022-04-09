@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TowerTurret
+  m_Name: AOETower
   m_Shader: {fileID: 4800000, guid: 0a493753a7a026b44ae92b7eb3f089a1, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -76,7 +76,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color1: {r: 0.88235295, g: 0.88235295, b: 0.88235295, a: 1}
-    - _Color2: {r: 0, g: 0, b: 1, a: 1}
+    - _Color2: {r: 1, g: 0.9910697, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

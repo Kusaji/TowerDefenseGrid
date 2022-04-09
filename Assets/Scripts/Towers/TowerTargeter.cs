@@ -5,16 +5,18 @@ using UnityEngine;
 public class TowerTargeter : MonoBehaviour
 {
     public TowerController controller;
+    public bool targetNewestEnemy;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void SetTargetingRange(float range)
@@ -29,15 +31,37 @@ public class TowerTargeter : MonoBehaviour
     //Lock On
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy") && controller.target == null)
+        if (!targetNewestEnemy)
         {
-            if (other.gameObject.GetComponent<EnemyHealth>().isAlive == true)
+            if (other.gameObject.CompareTag("Enemy") && controller.target == null)
             {
-                controller.target = other.gameObject;
+                if (other.gameObject.GetComponent<EnemyHealth>().isAlive == true)
+                {
+                    controller.target = other.gameObject;
+                }
+                else
+                {
+                    controller.target = null;
+                }
             }
-            else
+        }
+    }
+
+    //Always shoot newest target
+    private void OnTriggerEnter(Collider other)
+    {
+        if (targetNewestEnemy)
+        {
+            if (other.gameObject.CompareTag("Enemy"))
             {
-                controller.target = null;
+                if (other.gameObject.GetComponent<EnemyHealth>().isAlive == true)
+                {
+                    controller.target = other.gameObject;
+                }
+                else
+                {
+                    controller.target = null;
+                }
             }
         }
     }
