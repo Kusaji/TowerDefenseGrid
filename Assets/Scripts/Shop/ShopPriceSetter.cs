@@ -10,6 +10,7 @@ public class ShopPriceSetter : MonoBehaviour
     public Text basicTower;
     public Text slowingTower;
     public Text aoeTower;
+    public Text artilleryTower;
 
     // Start is called before the first frame update
     void Start()
@@ -28,5 +29,6 @@ public class ShopPriceSetter : MonoBehaviour
         basicTower.text = $"Basic Tower \n ${towerGrid.towerPrefabs[0].GetComponent<TowerUpgrades>().towerCost}";
         slowingTower.text = $"Slowing Tower \n ${towerGrid.towerPrefabs[1].GetComponent<TowerUpgrades>().towerCost}";
         aoeTower.text = $"AOE Tower \n ${towerGrid.towerPrefabs[2].GetComponent<TowerUpgrades>().towerCost}";
+        artilleryTower.text = $"Artillery Tower \n ${towerGrid.towerPrefabs[3].GetComponent<TowerUpgrades>().towerCost}";
     }
 }

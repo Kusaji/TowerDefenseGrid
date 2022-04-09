@@ -65,4 +65,15 @@ public class TowerTargeter : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (targetNewestEnemy)
+        {
+            if (other.gameObject == controller.target)
+            {
+                controller.target = null;
+            }
+        }
+    }
 }
