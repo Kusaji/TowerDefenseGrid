@@ -43,7 +43,7 @@ public class ArtilleryTowerProjectile : MonoBehaviour
         {
             Vector3 relativePos = target.transform.position - transform.position;
             Quaternion toRotation = Quaternion.LookRotation(relativePos);
-            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, 10f * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, 7f * Time.deltaTime);
         }
     }
 
