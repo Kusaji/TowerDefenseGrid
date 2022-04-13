@@ -33,7 +33,7 @@ public class EnemyHealth : MonoBehaviour
         isAlive = true;
 
         speaker.pitch = Random.Range(0.80f, 1.20f);
-        speaker.volume = Random.Range(0.50f, 0.60f);
+        speaker.volume = Random.Range(0.20f, 0.30f);
         speaker.Play();
     }
 
