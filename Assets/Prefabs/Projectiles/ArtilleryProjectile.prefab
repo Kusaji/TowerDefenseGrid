@@ -14589,10 +14589,12 @@ MonoBehaviour:
   damage: 0
   initialSpeed: 15
   flightSpeed: 25
+  rotationSpeed: 20
   isTriggered: 0
   enemies: []
   explosionPrefab: {fileID: 167312, guid: c06575f5b5642894da5e0448519f93ab, type: 3}
   enemyHitEffectPrefab: {fileID: 198170, guid: 14e0693baa71ee8419ab0814aede54ec, type: 3}
+  controller: {fileID: 0}
 --- !u!65 &2111134992517608526
 BoxCollider:
   m_ObjectHideFlags: 0

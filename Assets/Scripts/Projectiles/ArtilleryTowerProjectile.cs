@@ -13,6 +13,7 @@ public class ArtilleryTowerProjectile : MonoBehaviour
     public float damage;
     public float initialSpeed;
     public float flightSpeed;
+    public float rotationSpeed;
     private float currentSpeed;
 
     public bool isTriggered;
@@ -43,7 +44,7 @@ public class ArtilleryTowerProjectile : MonoBehaviour
         {
             Vector3 relativePos = target.transform.position - transform.position;
             Quaternion toRotation = Quaternion.LookRotation(relativePos);
-            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, 7f * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
     }
 
