@@ -55,23 +55,27 @@ public class EnemySpawner : MonoBehaviour
 
             if (currentWave.randomEnemySelections == true)
             {
-                Instantiate(
-                    currentWave.enemyPrefabs[Random.Range(0, currentWave.enemyPrefabs.Count)],
-                    Spawnpoints[0].transform.position,
-                    Quaternion.identity,
-                    GameObject.Find("Enemies").transform);
+                var newEnemy = Instantiate(
+                       currentWave.enemyPrefabs[Random.Range(0, currentWave.enemyPrefabs.Count)],
+                       Spawnpoints[0].transform.position,
+                       Quaternion.identity,
+                       GameObject.Find("Enemies").transform);
                 enemiesSpawned++;
+
+                newEnemy.GetComponent<EnemyNavigation>().enemySpawner = this;
 
                 yield return new WaitForSeconds(spawnDelay);
             }
             else
             {
-                Instantiate(
-                     currentWave.enemyPrefabs[0],
-                     Spawnpoints[0].transform.position,
-                     Quaternion.identity,
-                     GameObject.Find("Enemies").transform);
+                var newEnemy = Instantiate(
+                         currentWave.enemyPrefabs[0],
+                         Spawnpoints[0].transform.position,
+                         Quaternion.identity,
+                         GameObject.Find("Enemies").transform);
                 enemiesSpawned++;
+
+                newEnemy.GetComponent<EnemyNavigation>().enemySpawner = this;
 
                 yield return new WaitForSeconds(spawnDelay);
 

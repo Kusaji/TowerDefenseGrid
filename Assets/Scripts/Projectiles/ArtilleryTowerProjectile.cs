@@ -29,6 +29,9 @@ public class ArtilleryTowerProjectile : MonoBehaviour
         StartCoroutine(FlightRoutine());
         isTriggered = false;
         Destroy(gameObject, 6f);
+
+        
+
     }
 
     // Update is called once per frame
@@ -42,7 +45,8 @@ public class ArtilleryTowerProjectile : MonoBehaviour
     {
         if (target != null)
         {
-            Vector3 relativePos = target.transform.position - transform.position;
+            //Vector3 relativePos = target.transform.position - transform.position;
+            Vector3 relativePos = targetPosition - transform.position;
             Quaternion toRotation = Quaternion.LookRotation(relativePos);
             transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
@@ -58,11 +62,15 @@ public class ArtilleryTowerProjectile : MonoBehaviour
     public IEnumerator FlightRoutine()
     {
         target = initialFlightTarget;
+        targetPosition = target.transform.position;
+
         currentSpeed = initialSpeed;
 
         yield return new WaitForSeconds(1.0f);
 
         target = assignedTarget;
+        targetPosition = target.transform.position;
+
         currentSpeed = flightSpeed;
         StartCoroutine(NewTargetFinderRoutine());
     }
@@ -81,7 +89,8 @@ public class ArtilleryTowerProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy") && !isTriggered)
+        //if (other.gameObject.CompareTag("Enemy") && !isTriggered)
+        if (other.gameObject.CompareTag("Ground") && !isTriggered)
         {
             isTriggered = true;
 
