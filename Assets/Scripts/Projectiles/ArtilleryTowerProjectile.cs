@@ -8,13 +8,15 @@ public class ArtilleryTowerProjectile : MonoBehaviour
 
     public GameObject assignedTarget;
     public GameObject initialFlightTarget;
-    private Vector3 targetPosition;
 
     public float damage;
     public float initialSpeed;
     public float flightSpeed;
     public float rotationSpeed;
+    
     private float currentSpeed;
+    private Vector3 targetPosition;
+    private float distanceToTarget;
 
     public bool isTriggered;
     public List<EnemyHealth> enemies;
@@ -29,6 +31,9 @@ public class ArtilleryTowerProjectile : MonoBehaviour
         StartCoroutine(FlightRoutine());
         isTriggered = false;
         Destroy(gameObject, 6f);
+
+        
+
     }
 
     // Update is called once per frame
@@ -42,7 +47,8 @@ public class ArtilleryTowerProjectile : MonoBehaviour
     {
         if (target != null)
         {
-            Vector3 relativePos = target.transform.position - transform.position;
+            //Vector3 relativePos = target.transform.position - transform.position;
+            Vector3 relativePos = targetPosition - transform.position;
             Quaternion toRotation = Quaternion.LookRotation(relativePos);
             transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
@@ -55,16 +61,36 @@ public class ArtilleryTowerProjectile : MonoBehaviour
         transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime);
     }
 
+    public IEnumerator DistanceToTargetRoutine()
+    {
+        //Set initial distance
+        distanceToTarget = Vector3.Distance(transform.position, targetPosition);
+
+        //Loop while out of explosion range
+        while (distanceToTarget > 2f)
+        {
+            distanceToTarget = Vector3.Distance(transform.position, targetPosition);
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        Explode();
+        yield break;
+    }
+
     public IEnumerator FlightRoutine()
     {
         target = initialFlightTarget;
+        targetPosition = target.transform.position;
+
         currentSpeed = initialSpeed;
 
         yield return new WaitForSeconds(1.0f);
 
         target = assignedTarget;
+        targetPosition = target.transform.position;
+
         currentSpeed = flightSpeed;
-        StartCoroutine(NewTargetFinderRoutine());
+        StartCoroutine(DistanceToTargetRoutine());
     }
 
     public IEnumerator NewTargetFinderRoutine()
@@ -79,41 +105,43 @@ public class ArtilleryTowerProjectile : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+
+    /// <summary>
+    /// By using a spherecast, finds all enemies in range, deals damage to them, then
+    /// proceeds to remove game object and spawns explosion effects.
+    /// </summary>
+    public void Explode()
     {
-        if (other.gameObject.CompareTag("Enemy") && !isTriggered)
+        isTriggered = true;
+
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position, 8f, transform.forward);
+
+        foreach (var hit in hits)
         {
-            isTriggered = true;
-
-            RaycastHit[] hits = Physics.SphereCastAll(transform.position, 8f, transform.forward);
-
-            foreach (var hit in hits)
+            if (hit.transform.gameObject.CompareTag("Enemy"))
             {
-                if (hit.transform.gameObject.CompareTag("Enemy"))
-                {
-                    var enemyHealth = hit.transform.gameObject.GetComponent<EnemyHealth>();
+                var enemyHealth = hit.transform.gameObject.GetComponent<EnemyHealth>();
 
-                    if (enemyHealth.isAlive)
-                    {
-                        enemies.Add(hit.transform.GetComponent<EnemyHealth>());
-                    }
+                if (enemyHealth.isAlive)
+                {
+                    enemies.Add(hit.transform.GetComponent<EnemyHealth>());
                 }
             }
-
-            if (enemies.Count > 0)
-            {
-                foreach (EnemyHealth enemy in enemies)
-                {
-                    enemy.TakeDamage(damage);
-
-                    var hitEffect = Instantiate(enemyHitEffectPrefab, enemy.transform.position, Quaternion.identity);
-                    Destroy(hitEffect, 2f);
-                }
-            }
-
-            var explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            Destroy(explosion, 2f);
-            Destroy(gameObject);
         }
+
+        if (enemies.Count > 0)
+        {
+            foreach (EnemyHealth enemy in enemies)
+            {
+                enemy.TakeDamage(damage);
+
+                var hitEffect = Instantiate(enemyHitEffectPrefab, enemy.transform.position, Quaternion.identity);
+                Destroy(hitEffect, 2f);
+            }
+        }
+
+        var explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(explosion, 2f);
+        Destroy(gameObject);
     }
 }

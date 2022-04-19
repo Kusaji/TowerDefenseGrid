@@ -19,7 +19,7 @@ public class EnemyNavigation : MonoBehaviour
 
     private void Awake()
     {
-        enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>(); ;
+
     }
 
     void Start()
