@@ -76,7 +76,6 @@ public class AOETower : MonoBehaviour
 
     IEnumerator AttackRoutine()
     {
-
         if (currentLevel != 3)
         {
             CheckUpgradeLevel();

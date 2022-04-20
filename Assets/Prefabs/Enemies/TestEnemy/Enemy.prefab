@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6315308080493761063}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,6 +115,7 @@ MonoBehaviour:
   target: {fileID: 0}
   waypointnum: 0
   speed: 5
+  isSlowed: 0
   enemySpawner: {fileID: 0}
   health: {fileID: 3274118639082271906}
 --- !u!114 &3274118639082271906
@@ -132,6 +133,9 @@ MonoBehaviour:
   maxHealth: 25
   currenthealth: 0
   isAlive: 0
+  mobValue: 0
+  deathExplosionPrefab: {fileID: 0}
+  playerEconomy: {fileID: 0}
 --- !u!195 &492281711763124936
 NavMeshAgent:
   m_ObjectHideFlags: 0

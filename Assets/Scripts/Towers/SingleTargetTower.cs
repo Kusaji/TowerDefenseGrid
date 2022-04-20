@@ -38,7 +38,7 @@ public class SingleTargetTower : MonoBehaviour
         speaker = GetComponent<AudioSource>();
         towerTargeter = GetComponentInChildren<TowerTargeter>();
 
-        speaker.PlayOneShot(upgradeSound, 1.0f);
+        //speaker.PlayOneShot(upgradeSound, 1.0f);
 
         StartCoroutine(AttackRoutine());
         StartCoroutine(CheckForUpgrades());
