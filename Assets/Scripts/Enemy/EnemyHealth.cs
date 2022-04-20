@@ -17,6 +17,8 @@ public class EnemyHealth : MonoBehaviour
 
     public GameObject deathExplosionPrefab;
 
+    public Economy playerEconomy;
+
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +58,7 @@ public class EnemyHealth : MonoBehaviour
     IEnumerator DeathRoutine()
     {
         isAlive = false;
+        spawner.enemyList.activeEnemies.Remove(gameObject);
         //Destroy agent as enemy is dead.
 
         GetComponent<NavMeshAgent>().enabled = false;
@@ -64,6 +67,7 @@ public class EnemyHealth : MonoBehaviour
 
         //Add money to player economy
         Economy.playerMoney += mobValue;
+        playerEconomy.enemiesKilled++;
 
         var explosion = Instantiate(deathExplosionPrefab, transform.position, Quaternion.identity);
         Destroy(explosion, 2f);

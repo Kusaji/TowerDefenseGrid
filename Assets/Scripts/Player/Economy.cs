@@ -7,6 +7,7 @@ public class Economy : MonoBehaviour
 {
     public static int playerMoney;
     public int startingMoney;
+    public int enemiesKilled;
 
     private Text moneyText;
 

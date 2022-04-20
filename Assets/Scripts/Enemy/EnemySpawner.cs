@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public List<GameObject> Spawnpoints;
 
     public bool logDebugs;
+    public bool allWavesSpawned;
 
     [Header("Wave Spawnrate Settings")]
     public float spawnDelay;
@@ -21,11 +22,19 @@ public class EnemySpawner : MonoBehaviour
 
     public float healthMultiplier;
     private Text waveText;
+    public bool beatLevel;
+
+    public ActiveEnemeisList enemyList;
+    private Economy playerEconomy;
 
     void Start()
     {
         wave = 0;
+        enemyList = GameObject.Find("ActiveEnemies").GetComponent<ActiveEnemeisList>();
+        playerEconomy = GameObject.Find("Economy").GetComponent<Economy>();
         StartCoroutine(DelayFirstWave());
+        beatLevel = false;
+        allWavesSpawned = false;
         waveText = GameObject.Find("WaveText").GetComponent<Text>();
     }
 
@@ -33,6 +42,23 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         StartCoroutine(SpawnRoutine(levelWaves[wave]));
+    }
+
+    IEnumerator CheckIfLevelBeat()
+    {
+        while (gameObject && beatLevel == false)
+        {
+            if (allWavesSpawned)
+            {
+                if (enemyList.activeEnemies.Count == 0 && beatLevel == false)
+                {
+                    beatLevel = true;
+                    GameObject.Find("UI").GetComponent<LevelSuccessController>().LevelBeat();
+                    yield break;
+                }
+            }
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     IEnumerator SpawnRoutine(WaveSO currentWave)
@@ -62,6 +88,7 @@ public class EnemySpawner : MonoBehaviour
                        GameObject.Find("Enemies").transform);
                 enemiesSpawned++;
 
+                enemyList.activeEnemies.Add(newEnemy);
                 newEnemy.GetComponent<EnemyNavigation>().enemySpawner = this;
 
                 yield return new WaitForSeconds(spawnDelay);
@@ -75,7 +102,9 @@ public class EnemySpawner : MonoBehaviour
                          GameObject.Find("Enemies").transform);
                 enemiesSpawned++;
 
+                enemyList.activeEnemies.Add(newEnemy);
                 newEnemy.GetComponent<EnemyNavigation>().enemySpawner = this;
+                newEnemy.GetComponent<EnemyHealth>().playerEconomy = playerEconomy;
 
                 yield return new WaitForSeconds(spawnDelay);
 
@@ -102,10 +131,16 @@ public class EnemySpawner : MonoBehaviour
         }
         else
         {
+            allWavesSpawned = true;
+            StartCoroutine(CheckIfLevelBeat());
+
             if (logDebugs)
             {
                 Debug.Log("All waves spawned");
             }
+
+            yield break;
         }
     }
 }
+
