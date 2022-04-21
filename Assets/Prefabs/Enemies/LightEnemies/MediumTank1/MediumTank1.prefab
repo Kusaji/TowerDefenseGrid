@@ -117,7 +117,7 @@ MonoBehaviour:
   currenthealth: 0
   isAlive: 0
   mobValue: 25
-  deathExplosionPrefab: {fileID: 198170, guid: 14e0693baa71ee8419ab0814aede54ec, type: 3}
+  deathExplosionPrefab: {fileID: 134082, guid: 9aa5439aa8ecdb84187768851bd764f7, type: 3}
   playerEconomy: {fileID: 0}
 --- !u!114 &80753716167874622
 MonoBehaviour:
@@ -135,6 +135,7 @@ MonoBehaviour:
   target: {fileID: 0}
   waypointnum: 0
   speed: 2
+  distanceLeft: 0
   isSlowed: 0
   enemySpawner: {fileID: 0}
   health: {fileID: 80753716167874609}
