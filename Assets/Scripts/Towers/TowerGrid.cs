@@ -46,6 +46,7 @@ public class TowerGrid : MonoBehaviour
         {
             upgradeShopObject.SetActive(true);
             upgradeText.text = $"Upgrade Cost: {currentTower.GetUpgradeCost()}";
+            currentTower.GetComponent<TowerController>().towerTargeter.towerRangeMesh.enabled = true;
         }
     }
 
@@ -53,6 +54,11 @@ public class TowerGrid : MonoBehaviour
     {
         towerShopObject.SetActive(false);
         upgradeShopObject.SetActive(false);
+
+        if (currentTower != null)
+        {
+            currentTower.GetComponent<TowerController>().towerTargeter.towerRangeMesh.enabled = false;
+        }
     }
 
     public void BuyTower(int towerPrefabNum)

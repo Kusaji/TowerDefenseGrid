@@ -7,6 +7,7 @@ public class TowerTargeter : MonoBehaviour
 {
     public TowerController controller;
     public bool targetNewestEnemy;
+    public MeshRenderer towerRangeMesh;
 
 
     // Start is called before the first frame update
@@ -27,32 +28,6 @@ public class TowerTargeter : MonoBehaviour
         transform.localScale = newRange;
     }
 
-    //Retarget each new enemy
-    //OnTriggerEnter
-
-    //Lock On
-    /*    private void OnTriggerStay(Collider other)
-        {
-            if (!targetNewestEnemy)
-            {
-                if (other.gameObject.CompareTag("Enemy"))
-                {
-                    if (other.gameObject.GetComponent<EnemyHealth>().isAlive == true)
-                    {
-                        var newEnemy = other.gameObject;
-                        controller.target = other.gameObject;
-                        enemies.Add(other.gameObject.GetComponent<EnemyNavigation>().distanceLeft);
-                        //enemies.Sort();
-                    }
-                    else
-                    {
-                        controller.target = null;
-                    }
-                }
-            }
-        }*/
-
-    //Always shoot newest target
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
