@@ -3962,6 +3962,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1483324445}
     m_Modifications:
+    - target: {fileID: 47440802668074989, guid: 680d8f1da96463d429e21e6414610d39, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 47440802683241209, guid: 680d8f1da96463d429e21e6414610d39, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4065,6 +4069,7 @@ MonoBehaviour:
   healthMultiplier: 0
   beatLevel: 0
   enemyList: {fileID: 0}
+  spawnSound: {fileID: 0}
 --- !u!23 &1901090929033435166
 MeshRenderer:
   m_ObjectHideFlags: 0
