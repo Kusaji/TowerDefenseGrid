@@ -25,17 +25,26 @@ public class EnemySpawner : MonoBehaviour
     public bool beatLevel;
 
     public ActiveEnemeisList enemyList;
+
     private Economy playerEconomy;
+    private AudioSource speaker;
+    public AudioClip spawnSound;
 
     void Start()
     {
-        wave = 0;
+        //Find necessary objects
         enemyList = GameObject.Find("ActiveEnemies").GetComponent<ActiveEnemeisList>();
         playerEconomy = GameObject.Find("Economy").GetComponent<Economy>();
-        StartCoroutine(DelayFirstWave());
+        waveText = GameObject.Find("WaveText").GetComponent<Text>();
+        speaker = GetComponent<AudioSource>();
+        
+        //Set variables
+        wave = 0;
         beatLevel = false;
         allWavesSpawned = false;
-        waveText = GameObject.Find("WaveText").GetComponent<Text>();
+
+        //Start Coroutines
+        StartCoroutine(DelayFirstWave());
     }
 
     IEnumerator DelayFirstWave()
@@ -53,12 +62,18 @@ public class EnemySpawner : MonoBehaviour
                 if (enemyList.activeEnemies.Count == 0 && beatLevel == false)
                 {
                     beatLevel = true;
-                    GameObject.Find("UI").GetComponent<LevelSuccessController>().LevelBeat();
+                    GameObject.Find("UI").GetComponent<LevelController>().LevelBeat();
                     yield break;
                 }
             }
             yield return new WaitForSeconds(1f);
         }
+    }
+
+    public void PlaySpawnSound()
+    {
+        speaker.pitch = Random.Range(0.90f, 1.10f);
+        speaker.PlayOneShot(spawnSound, Random.Range(0.25f, 0.35f));
     }
 
     IEnumerator SpawnRoutine(WaveSO currentWave)
@@ -90,6 +105,11 @@ public class EnemySpawner : MonoBehaviour
 
                 enemyList.activeEnemies.Add(newEnemy);
                 newEnemy.GetComponent<EnemyNavigation>().enemySpawner = this;
+                newEnemy.GetComponent<EnemyNavigation>().playerEconomy = playerEconomy;
+                newEnemy.GetComponent<EnemyHealth>().playerEconomy = playerEconomy;
+
+
+                PlaySpawnSound();
 
                 yield return new WaitForSeconds(spawnDelay);
             }
@@ -104,7 +124,10 @@ public class EnemySpawner : MonoBehaviour
 
                 enemyList.activeEnemies.Add(newEnemy);
                 newEnemy.GetComponent<EnemyNavigation>().enemySpawner = this;
+                newEnemy.GetComponent<EnemyNavigation>().playerEconomy = playerEconomy;
                 newEnemy.GetComponent<EnemyHealth>().playerEconomy = playerEconomy;
+
+                PlaySpawnSound();
 
                 yield return new WaitForSeconds(spawnDelay);
 

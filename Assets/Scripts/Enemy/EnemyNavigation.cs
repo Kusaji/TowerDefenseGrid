@@ -13,8 +13,9 @@ public class EnemyNavigation : MonoBehaviour
     public bool isSlowed;
 
     public EnemySpawner enemySpawner;
-
     public EnemyHealth health;
+    public Economy playerEconomy;
+
     // Start is called before the first frame update
 
     private void Awake()
@@ -58,7 +59,8 @@ public class EnemyNavigation : MonoBehaviour
             } 
             else
             {
-                //subtract from players lives / health
+                playerEconomy.TakeDamage();
+                GameObject.Find("ActiveEnemies").GetComponent<ActiveEnemeisList>().activeEnemies.Remove(gameObject);
                 Destroy(gameObject);
             }
         }
