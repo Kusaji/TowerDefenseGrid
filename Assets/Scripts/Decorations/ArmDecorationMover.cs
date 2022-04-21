@@ -31,7 +31,7 @@ public class ArmDecorationMover : MonoBehaviour
                 startingPosition.y + Random.Range(-2, 2),
                 startingPosition.z + Random.Range(-3, 3));
 
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(Random.Range(5f, 15f));
         }
     }
 }

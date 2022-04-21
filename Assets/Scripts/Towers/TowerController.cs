@@ -5,6 +5,7 @@ using UnityEngine;
 public class TowerController : MonoBehaviour
 {
     public GameObject target;
+    public EnemyHealth targetHealth;
     public GameObject towerRotationBase;
 
     public bool turretTrackTarget;

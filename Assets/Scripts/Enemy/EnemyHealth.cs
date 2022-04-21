@@ -59,6 +59,7 @@ public class EnemyHealth : MonoBehaviour
     {
         isAlive = false;
         spawner.enemyList.activeEnemies.Remove(gameObject);
+        gameObject.tag = "Untagged";
         //Destroy agent as enemy is dead.
 
         GetComponent<NavMeshAgent>().enabled = false;

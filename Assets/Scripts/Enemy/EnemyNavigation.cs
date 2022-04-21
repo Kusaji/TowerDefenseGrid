@@ -9,6 +9,7 @@ public class EnemyNavigation : MonoBehaviour
     public GameObject target;
     public int waypointnum;
     public float speed;
+    public float distanceLeft;
 
     public bool isSlowed;
 
@@ -38,12 +39,46 @@ public class EnemyNavigation : MonoBehaviour
 
         isSlowed = false;
 
+        StartCoroutine(CalculateDistanceLeft());
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
+    }
+
+    IEnumerator CalculateDistanceLeft()
+    {
+        while (health.isAlive)
+        {
+            distanceLeft = GetRemainingDistance();
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    public float GetRemainingDistance()
+    {
+        float distance = 0;
+        Vector3[] corners = agent.path.corners;
+
+        if (corners.Length > 2)
+        {
+            for (int i = 1; i < corners.Length; i++)
+            {
+                Vector2 previous = new Vector2(corners[i - 1].x, corners[i - 1].z);
+                Vector2 current = new Vector2(corners[i].x, corners[i].z);
+
+                distance += Vector2.Distance(previous, current);
+            }
+        }
+        else
+        {
+            distance = agent.remainingDistance;
+        }
+
+        return distance;
     }
 
     private void OnTriggerEnter(Collider other)
