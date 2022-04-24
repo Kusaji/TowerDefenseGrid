@@ -113,10 +113,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c8d6a797e2d2b43910506fd1aa15d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 15
+  maxHealth: 17
   currenthealth: 0
   isAlive: 0
   mobValue: 10
+  spawner: {fileID: 0}
   deathExplosionPrefab: {fileID: 198170, guid: 14e0693baa71ee8419ab0814aede54ec, type: 3}
   playerEconomy: {fileID: 0}
 --- !u!114 &80753716167874622

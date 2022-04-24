@@ -21,7 +21,14 @@ public class TowerTargeter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (target != null)
+        {
+            if (!targetHealth.isAlive)
+            {
+                target = null;
+                targetHealth = null;
+            }
+        }
     }
 
     public void SetTargetingRange(float range)
@@ -35,21 +42,24 @@ public class TowerTargeter : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             //If nothing is targeted at all
-            if (other.gameObject.GetComponent<EnemyHealth>().isAlive == true && target == null)
+            if (other.gameObject.GetComponent<EnemyHealth>().isAlive == true && target == null && targetHealth == null)
             {
                 target = other.gameObject;
                 targetHealth = other.gameObject.GetComponent<EnemyHealth>();
             }
+
             //If we already have target, compare remaining distance, attack enemy closer to end of level
-            else if (other.gameObject.GetComponent<EnemyHealth>().isAlive == true && target != null)
+            else if (other.gameObject.GetComponent<EnemyHealth>().isAlive == true && target != null && targetHealth != null)
             {
-                var newEnemy = other.gameObject.GetComponent<EnemyNavigation>();
-                var currentEnemyObject = target;
                 var currentEnemy = target.GetComponent<EnemyNavigation>();
+                var newEnemy = other.gameObject.GetComponent<EnemyNavigation>();
+                
+                //var currentEnemyObject = target;
 
                 if (newEnemy.distanceLeft < currentEnemy.distanceLeft)
                 {
                     target = other.gameObject;
+                    targetHealth = other.gameObject.GetComponent<EnemyHealth>();
                 }
                 else
                 {
@@ -59,6 +69,7 @@ public class TowerTargeter : MonoBehaviour
             else if (other.gameObject.GetComponent<EnemyHealth>().isAlive == false && other.gameObject == target)
             {
                 target = null;
+                targetHealth = null;
             }
         }
     }
@@ -68,6 +79,7 @@ public class TowerTargeter : MonoBehaviour
         if (other.gameObject == target)
         {
             target = null;
+            targetHealth = null;
         }
     }
 }

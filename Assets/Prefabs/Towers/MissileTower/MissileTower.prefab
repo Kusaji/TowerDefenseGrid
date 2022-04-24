@@ -15090,7 +15090,7 @@ MonoBehaviour:
   towerAudio: {fileID: 1708537060950558969}
   attackParticles: {fileID: 2129650641710132577}
   onCooldown: 0
-  attackCooldown: 5
+  attackCooldown: 10
   damage: 20
   artilleryProjectile: {fileID: 7506998144537045000, guid: d2eec92650d872041beb23a116ff3c9a, type: 3}
   initialFlightTarget: {fileID: 3569639517201880496}

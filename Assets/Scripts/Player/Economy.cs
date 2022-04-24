@@ -17,6 +17,9 @@ public class Economy : MonoBehaviour
     private Text healthText;
     public LevelController levelController;
 
+    [Header("Debug")]
+    public float timeScale;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +33,8 @@ public class Economy : MonoBehaviour
 
         currentHealth = maxHealth;
         healthText.text = $"Health: {currentHealth} | {maxHealth}";
+
+        Time.timeScale = timeScale;
 
         StartCoroutine(UpdateUIText());
     }

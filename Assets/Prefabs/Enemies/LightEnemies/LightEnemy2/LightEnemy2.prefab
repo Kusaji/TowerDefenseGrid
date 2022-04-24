@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 80753716167874619}
+  - component: {fileID: 80753716167874609}
   - component: {fileID: 80753716167874618}
   - component: {fileID: 80753716167874621}
   - component: {fileID: 80753716167874620}
   - component: {fileID: 80753716167874623}
-  - component: {fileID: 80753716167874609}
   - component: {fileID: 80753716167874622}
   - component: {fileID: 4296415841350009043}
   - component: {fileID: 7094110430217336637}
@@ -39,6 +39,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &80753716167874609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80753716167874608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c8d6a797e2d2b43910506fd1aa15d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 23
+  currenthealth: 0
+  isAlive: 0
+  mobValue: 15
+  spawner: {fileID: 0}
+  deathExplosionPrefab: {fileID: 106912, guid: 50cc3085bd744f5418867cd768e939e3, type: 3}
+  playerEconomy: {fileID: 0}
 --- !u!33 &80753716167874618
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -123,23 +142,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &80753716167874609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80753716167874608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09c8d6a797e2d2b43910506fd1aa15d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 20
-  currenthealth: 0
-  isAlive: 0
-  mobValue: 15
-  deathExplosionPrefab: {fileID: 106912, guid: 50cc3085bd744f5418867cd768e939e3, type: 3}
 --- !u!114 &80753716167874622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,9 +158,11 @@ MonoBehaviour:
   target: {fileID: 0}
   waypointnum: 0
   speed: 5
+  distanceLeft: 0
   isSlowed: 0
   enemySpawner: {fileID: 0}
   health: {fileID: 80753716167874609}
+  playerEconomy: {fileID: 0}
 --- !u!54 &4296415841350009043
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -202,6 +202,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3857441672496753068, guid: 26b866dec3ee3bf4489f12464e4608c8, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857441672496753068, guid: 26b866dec3ee3bf4489f12464e4608c8, type: 3}
+      propertyPath: startingMoney
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3857441672510366633, guid: 26b866dec3ee3bf4489f12464e4608c8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -871,7 +879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4970283074322918072, guid: 5c216836235868749bba03da1042a6ca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.540001
+      value: -10.040001
       objectReference: {fileID: 0}
     - target: {fileID: 4970283074322918072, guid: 5c216836235868749bba03da1042a6ca, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1920,7 +1928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4970283074322918072, guid: 5c216836235868749bba03da1042a6ca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.04
+      value: -22.29
       objectReference: {fileID: 0}
     - target: {fileID: 4970283074322918072, guid: 5c216836235868749bba03da1042a6ca, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2302,7 +2310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
       propertyPath: levelWaves.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
       propertyPath: Spawnpoints.Array.size
@@ -2328,6 +2336,10 @@ PrefabInstance:
       propertyPath: levelWaves.Array.data[4]
       value: 
       objectReference: {fileID: 11400000, guid: f0f2fd04645b9d046b3556568c5b443d, type: 2}
+    - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
+      propertyPath: levelWaves.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 67a31c61ffa32e44981b4e5bdee3f1b4, type: 2}
     - target: {fileID: 7948670964450877256, guid: 245709dae1c9d5941963fb1e4de0eaf2, type: 3}
       propertyPath: Spawnpoints.Array.data[0]
       value: 
