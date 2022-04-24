@@ -22,11 +22,13 @@ public class PauseMenuController : MonoBehaviour
             {
                 pauseMenuObject.SetActive(true);
                 Time.timeScale = 0;
+                isPaused = true;
             }
             else
             {
                 pauseMenuObject.SetActive(false);
                 Time.timeScale = 1.0f;
+                isPaused = false;
             }
         }
     }

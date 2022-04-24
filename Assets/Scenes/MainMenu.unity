@@ -968,7 +968,7 @@ MonoBehaviour:
   towers:
   - {fileID: 5925620237698651913, guid: 1d364a812ebe8a64596ffdaf1793edfb, type: 3}
   - {fileID: 5925620237698651913, guid: 363c4a9f100523f418a77618de03d5d9, type: 3}
-  - {fileID: 6367757892166917674, guid: 2f4bc5e7617c9ae47940ab74bb34a87f, type: 3}
+  - {fileID: 6367757892166917674, guid: a6cd59f02ce82b2479f17dd6ba371e81, type: 3}
   - {fileID: 5925620237698651913, guid: 9fc36ddb5f7a0c14e932b60ba6fbb6b0, type: 3}
 --- !u!1 &534423905
 GameObject:
