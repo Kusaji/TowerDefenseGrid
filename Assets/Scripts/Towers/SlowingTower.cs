@@ -2,86 +2,73 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlowingTower : MonoBehaviour
+public class SlowingTower : Tower
 {
-    public TowerController controller;
+    [Header("Attack Stats")]
     public bool onCooldown;
-    public List<EnemyNavigation> enemies;
-
     public float slowPercentage;
     public float slowDuration;
-
     public float attackCooldown;
     
-
-    private Animator animator;
-    public ParticleSystem particles;
-
-    public TowerUpgrades towerUpgrades;
-    public int currentLevel;
-
-    public AudioClip attackSound;
-    private AudioSource speaker;
-
-
+    [Header("Enemies")]
+    public List<EnemyNavigation> enemies;
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
-        speaker = GetComponent<AudioSource>();
-
-        currentLevel = 1;
-
+        towerTargeter.SetTargetingRange(towerAttackRange);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (controller.target != null && !onCooldown)
+        if (towerTargeter.target != null && !onCooldown)
         {
             StartCoroutine(AttackRoutine());
         }
     }
 
-    public void CheckUpgradeLevel()
+    public override void Attack()
     {
-        if (towerUpgrades.currentLevel == 2 && currentLevel == 1)
-        {
-            slowDuration *= 1.5f;
-            slowPercentage -= 0.05f;
-            attackCooldown -= 1;
-            currentLevel = towerUpgrades.currentLevel;
-        }
-        else if (towerUpgrades.currentLevel == 3 && currentLevel == 2)
-        {
-            slowDuration *= 1.5f;
-            slowPercentage -= 0.05f;
-            attackCooldown -= 1;
-            currentLevel = towerUpgrades.currentLevel;
-        }
+        base.Attack();
     }
 
-    public void AttackEffects()
+    public override void UpgradeTower()
     {
-        speaker.PlayOneShot(attackSound, 0.6f);
-        animator.SetTrigger("Attack");
-        particles.Play();
+        base.UpgradeTower();
     }
 
-    IEnumerator AttackRoutine()
+    public override void Level2Upgrade()
     {
+        base.Level2Upgrade();
 
-        if (currentLevel != 3)
-        {
-            CheckUpgradeLevel();
-        }
+        slowDuration *= 1.5f;
+        slowPercentage -= 0.05f;
+        attackCooldown -= 1;
+
+        towerAudio.PlayUpgradeSound();
+    }
+
+    public override void Level3Upgrade()
+    {
+        base.Level3Upgrade();
+
+        slowDuration *= 1.5f;
+        slowPercentage -= 0.05f;
+        attackCooldown -= 1;
+
+        towerAudio.PlayUpgradeSound();
+    }
+
+    public new IEnumerator AttackRoutine()
+    {
+        //Clear enemy list per attack
         enemies.Clear();
-
-        AttackEffects();
         onCooldown = true;
 
-        RaycastHit[] hits = Physics.SphereCastAll(transform.position, controller.towerAttackRange, transform.forward);
+        Attack(); //Used for Effects / sounds
+
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position, towerAttackRange, transform.forward);
 
         foreach (var hit in hits)
         {
@@ -102,6 +89,5 @@ public class SlowingTower : MonoBehaviour
         yield return new WaitForSeconds(attackCooldown);
 
         onCooldown = false;
-
     }
 }

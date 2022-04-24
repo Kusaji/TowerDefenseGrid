@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class TowerTargeter : MonoBehaviour
 {
-    public TowerController controller;
+    public GameObject target;
+    public EnemyHealth targetHealth;
+
     public bool targetNewestEnemy;
     public MeshRenderer towerRangeMesh;
 
@@ -33,38 +35,39 @@ public class TowerTargeter : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             //If nothing is targeted at all
-            if (other.gameObject.GetComponent<EnemyHealth>().isAlive == true && controller.target == null)
+            if (other.gameObject.GetComponent<EnemyHealth>().isAlive == true && target == null)
             {
-                controller.target = other.gameObject;
+                target = other.gameObject;
+                targetHealth = other.gameObject.GetComponent<EnemyHealth>();
             }
             //If we already have target, compare remaining distance, attack enemy closer to end of level
-            else if (other.gameObject.GetComponent<EnemyHealth>().isAlive == true && controller.target != null)
+            else if (other.gameObject.GetComponent<EnemyHealth>().isAlive == true && target != null)
             {
                 var newEnemy = other.gameObject.GetComponent<EnemyNavigation>();
-                var currentEnemyObject = controller.target;
-                var currentEnemy = controller.target.GetComponent<EnemyNavigation>();
+                var currentEnemyObject = target;
+                var currentEnemy = target.GetComponent<EnemyNavigation>();
 
                 if (newEnemy.distanceLeft < currentEnemy.distanceLeft)
                 {
-                    controller.target = other.gameObject;
+                    target = other.gameObject;
                 }
                 else
                 {
                     //Do nothing
                 }
             }
-            else if (other.gameObject.GetComponent<EnemyHealth>().isAlive == false && other.gameObject == controller.target)
+            else if (other.gameObject.GetComponent<EnemyHealth>().isAlive == false && other.gameObject == target)
             {
-                controller.target = null;
+                target = null;
             }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == controller.target)
+        if (other.gameObject == target)
         {
-            controller.target = null;
+            target = null;
         }
     }
 }

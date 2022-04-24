@@ -2,89 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AOETower : MonoBehaviour
+public class AOETower : Tower
 {
-    public TowerController controller;
+    [Header("Attack Stats")]
     public bool onCooldown;
-    public List<EnemyHealth> enemies;
-
-    public float damage;
     public float attackCooldown;
 
+    [Header("Enemies")]
+    public List<EnemyHealth> enemies;
 
-    private Animator animator;
-    public ParticleSystem particles;
+    [Header("Effect Prefabs")]
     public GameObject enemyHitEffectPrefab;
-
-    public TowerUpgrades towerUpgrades;
-    public int currentLevel;
-
-    public AudioClip attackSound;
-    private AudioSource speaker;
-
-
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
-        speaker = GetComponent<AudioSource>();
-
-        currentLevel = 1;
-
+        towerTargeter.SetTargetingRange(towerAttackRange);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (controller.target != null && !onCooldown)
+        if (towerTargeter.target != null && !onCooldown)
         {
             StartCoroutine(AttackRoutine());
         }
     }
 
-    public void CheckUpgradeLevel()
+    public override void Level2Upgrade()
     {
-        if (towerUpgrades.currentLevel == 2 && currentLevel == 1)
-        {
-            damage *= 1.5f;
-            attackCooldown -= 0.5f;
+        base.Level2Upgrade();
 
-            controller.towerAttackRange += 2.5f;
-            GetComponentInChildren<TowerTargeter>().SetTargetingRange(controller.towerAttackRange);
+        towerStats.attackDamageFloor *= 1.5f;
+        towerStats.attackDamageCeiling *= 1.5f;
+        attackCooldown -= 0.5f;
 
-            currentLevel = towerUpgrades.currentLevel;
-        }
-        else if (towerUpgrades.currentLevel == 3 && currentLevel == 2)
-        {
-            damage *= 1.5f;
-            attackCooldown -= 0.5f;
-
-            controller.towerAttackRange += 2.5f;
-            GetComponentInChildren<TowerTargeter>().SetTargetingRange(controller.towerAttackRange);
-
-            currentLevel = towerUpgrades.currentLevel;
-        }
+        towerAttackRange += 2.5f;
+        towerTargeter.SetTargetingRange(towerAttackRange);
     }
 
-    public void AttackEffects()
+    public override void Level3Upgrade()
     {
-        speaker.PlayOneShot(attackSound, 0.6f);
-        animator.SetTrigger("Attack");
-        particles.Play();
+        base.Level3Upgrade();
+
+        towerStats.attackDamageFloor *= 1.5f;
+        towerStats.attackDamageCeiling *= 1.5f;
+        attackCooldown -= 0.5f;
+
+        towerAttackRange += 2.5f;
+        towerTargeter.SetTargetingRange(towerAttackRange);
     }
 
-    IEnumerator AttackRoutine()
+    public new IEnumerator AttackRoutine()
     {
-        if (currentLevel != 3)
-        {
-            CheckUpgradeLevel();
-        }
-
-        AttackEffects();
         onCooldown = true;
+        base.Attack();
 
-        RaycastHit[] hits = Physics.SphereCastAll(transform.position, controller.towerAttackRange, transform.forward);
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position, towerAttackRange, transform.forward);
 
         foreach (var hit in hits)
         {
@@ -103,7 +77,7 @@ public class AOETower : MonoBehaviour
         {
             foreach (EnemyHealth enemy in enemies)
             {
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(base.Damage());
                 var hitEffect = Instantiate(enemyHitEffectPrefab, enemy.transform.position, Quaternion.identity);
                 Destroy(hitEffect, 2f);
             }

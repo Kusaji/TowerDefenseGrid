@@ -252,13 +252,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5925620237698524061}
+  - component: {fileID: 2427687141526386284}
+  - component: {fileID: 9152763012214054858}
+  - component: {fileID: 6054800753824606145}
   - component: {fileID: 5925620237697795713}
   - component: {fileID: 5925620237696635683}
   - component: {fileID: 7083720177211186881}
-  - component: {fileID: 3720678545503474987}
-  - component: {fileID: 2927262562070351819}
   - component: {fileID: 5372388266701496020}
-  - component: {fileID: 2427687141526386284}
   m_Layer: 0
   m_Name: AOETower
   m_TagString: Untagged
@@ -286,6 +286,69 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
+--- !u!114 &2427687141526386284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5925620237698651913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a71c709c5200c428b722bc80c71b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerTargeter: {fileID: 5944106013144527740}
+  towerRotationBase: {fileID: 5944106012083369435}
+  towerTrackTarget: 0
+  towerTrackingSpeed: 0
+  towerAttackRange: 10
+  speaker: {fileID: 5372388266701496020}
+  animator: {fileID: 7083720177211186881}
+  towerStats: {fileID: 9152763012214054858}
+  towerAudio: {fileID: 6054800753824606145}
+  attackParticles: {fileID: 6904502134821942411}
+  onCooldown: 0
+  attackCooldown: 3
+  enemies: []
+  enemyHitEffectPrefab: {fileID: 159846, guid: 8f56f64d778d3c44a9d99bd7d418c079, type: 3}
+--- !u!114 &9152763012214054858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5925620237698651913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d5d2f301992bab479e241eb7925f456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  attacksPerSecond: 0
+  attackDamageFloor: 6
+  attackDamageCeiling: 8
+  calculatedAPS: 0
+  towerCost: 100
+  level2UpgradeCost: 200
+  level3UpgradeCost: 350
+  level2Visuals: {fileID: 0}
+  level3Visuals: {fileID: 0}
+--- !u!114 &6054800753824606145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5925620237698651913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a66bc0ffdb1a343a87eb573e6d5c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower: {fileID: 2427687141526386284}
+  shootSound: {fileID: 8300000, guid: 62fa7bcde3cb7e4479361107aef21d04, type: 3}
+  upgradeSound: {fileID: 8300000, guid: 50d32d2475573aa4c8cd3905352c2267, type: 3}
 --- !u!33 &5925620237697795713
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -354,41 +417,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3720678545503474987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5925620237698651913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d08ae3539e70e964586e9d3ba75d409e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  targetHealth: {fileID: 0}
-  towerRotationBase: {fileID: 5944106012083369435}
-  turretTrackTarget: 0
-  towerAttackRange: 10
-  towerTargeter: {fileID: 5944106013144527740}
-  turretTrackingSpeed: 0
---- !u!114 &2927262562070351819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5925620237698651913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17d71151c8040864db1d44b8ee704808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerCost: 100
-  level2UpgradeCost: 200
-  level3UpgradeCost: 350
-  currentLevel: 0
 --- !u!82 &5372388266701496020
 AudioSource:
   m_ObjectHideFlags: 0
@@ -485,28 +513,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2427687141526386284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5925620237698651913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07a71c709c5200c428b722bc80c71b8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 3720678545503474987}
-  onCooldown: 0
-  enemies: []
-  damage: 7.5
-  attackCooldown: 3
-  particles: {fileID: 6904502134821942411}
-  enemyHitEffectPrefab: {fileID: 159846, guid: 8f56f64d778d3c44a9d99bd7d418c079, type: 3}
-  towerUpgrades: {fileID: 2927262562070351819}
-  currentLevel: 0
-  attackSound: {fileID: 8300000, guid: 62fa7bcde3cb7e4479361107aef21d04, type: 3}
 --- !u!1 &5944106012083369435
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,7 +670,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6a2b859744eccc144a761bb93eec51bb, type: 2}
+  - {fileID: 2100000, guid: bd6f20e08568c8840bc8128feb7991ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -728,9 +734,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44b01acdf4896c41b266531d3e64fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 3720678545503474987}
+  target: {fileID: 0}
+  targetHealth: {fileID: 0}
   targetNewestEnemy: 0
-  towerRangeMesh: {fileID: 5925620237696635683}
+  towerRangeMesh: {fileID: 5944106013144527742}
 --- !u!1001 &6904502134835922029
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ public class ArtilleryTowerProjectile : MonoBehaviour
 
     public GameObject explosionPrefab;
     public GameObject enemyHitEffectPrefab;
-    public TowerController controller;
+    public ArtilleryTower tower;
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +31,6 @@ public class ArtilleryTowerProjectile : MonoBehaviour
         StartCoroutine(FlightRoutine());
         isTriggered = false;
         Destroy(gameObject, 6f);
-
-        
-
     }
 
     // Update is called once per frame
@@ -97,9 +94,9 @@ public class ArtilleryTowerProjectile : MonoBehaviour
     {
         while (gameObject)
         {
-            if (controller.target != assignedTarget)
+            if (tower.towerTargeter.target != assignedTarget)
             {
-                assignedTarget = controller.target;
+                assignedTarget = tower.towerTargeter.target;
             }
             yield return new WaitForSeconds(0.1f);
         }

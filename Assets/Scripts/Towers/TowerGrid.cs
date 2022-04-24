@@ -17,7 +17,7 @@ public class TowerGrid : MonoBehaviour
     public ShopPriceSetter shopPrice;
     public Text upgradeText;
 
-    private TowerUpgrades currentTower;
+    private Tower currentTower;
 
 
     // Start is called before the first frame update
@@ -42,11 +42,11 @@ public class TowerGrid : MonoBehaviour
             towerShopObject.SetActive(true);
             shopPrice.UpdatePrices();
         }
-        else if (!emptyGrid && currentTower.currentLevel < 3)
+        else if (!emptyGrid && currentTower.towerStats.currentLevel < 3)
         {
             upgradeShopObject.SetActive(true);
-            upgradeText.text = $"Upgrade Cost: {currentTower.GetUpgradeCost()}";
-            currentTower.GetComponent<TowerController>().towerTargeter.towerRangeMesh.enabled = true;
+            upgradeText.text = $"Upgrade Cost: {currentTower.towerStats.GetUpgradeCost()}";
+            currentTower.GetComponent<Tower>().towerTargeter.towerRangeMesh.enabled = true;
         }
     }
 
@@ -57,14 +57,14 @@ public class TowerGrid : MonoBehaviour
 
         if (currentTower != null)
         {
-            currentTower.GetComponent<TowerController>().towerTargeter.towerRangeMesh.enabled = false;
+            currentTower.GetComponent<Tower>().towerTargeter.towerRangeMesh.enabled = false;
         }
     }
 
     public void BuyTower(int towerPrefabNum)
     {
         var selectedTower = towerPrefabs[towerPrefabNum].gameObject;
-        var selectedTowerCost = selectedTower.GetComponent<TowerUpgrades>().towerCost;
+        var selectedTowerCost = selectedTower.GetComponent<TowerStats>().towerCost;
 
         if (emptyGrid && Economy.playerMoney >= selectedTowerCost)
         {
@@ -80,7 +80,7 @@ public class TowerGrid : MonoBehaviour
             hologramEffect.SetActive(false);
             CloseShopMenu();
 
-            currentTower = GetComponentInChildren<TowerUpgrades>();
+            currentTower = GetComponentInChildren<Tower>();
 
             var purchaseFX = Instantiate(purchaseEffect, towerSlot.transform.position, Quaternion.Euler(-90f, 180f, 0.0f), transform);
             Destroy(purchaseFX, 2f);
@@ -89,10 +89,10 @@ public class TowerGrid : MonoBehaviour
 
     public void UpgradeTower()
     {
-        if (Economy.playerMoney >= currentTower.GetUpgradeCost() && currentTower.currentLevel < 3)
+        if (Economy.playerMoney >= currentTower.towerStats.GetUpgradeCost() && currentTower.towerStats.currentLevel < 3)
         {
-            Economy.playerMoney -= currentTower.GetUpgradeCost();
-            currentTower.currentLevel++;
+            Economy.playerMoney -= currentTower.towerStats.GetUpgradeCost();
+            currentTower.UpgradeTower();
             CloseShopMenu();
 
             var purchaseFX = Instantiate(purchaseEffect, towerSlot.transform.position, Quaternion.Euler(-90f, 180f, 0.0f), transform);
