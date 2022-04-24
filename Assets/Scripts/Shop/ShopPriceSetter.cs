@@ -26,9 +26,9 @@ public class ShopPriceSetter : MonoBehaviour
 
     public void UpdatePrices()
     {
-        basicTower.text = $"Basic Tower \n ${towerGrid.towerPrefabs[0].GetComponent<BasicTower>().towerStats.towerCost}";
-        slowingTower.text = $"Slowing Tower \n ${towerGrid.towerPrefabs[1].GetComponent<SlowingTower>().towerStats.towerCost}";
-        aoeTower.text = $"AOE Tower \n ${towerGrid.towerPrefabs[2].GetComponent<AOETower>().towerStats.towerCost}";
-        artilleryTower.text = $"Artillery Tower \n ${towerGrid.towerPrefabs[3].GetComponent<ArtilleryTower>().towerStats.towerCost}";
+        basicTower.text = $"Basic Tower \n ${towerGrid.towerPrefabs[0].GetComponent<Tower>().towerStats.towerCost}";
+        slowingTower.text = $"Slowing Tower \n ${towerGrid.towerPrefabs[1].GetComponent<Tower>().towerStats.towerCost}";
+        aoeTower.text = $"AOE Tower \n ${towerGrid.towerPrefabs[2].GetComponent<Tower>().towerStats.towerCost}";
+        artilleryTower.text = $"Artillery Tower \n ${towerGrid.towerPrefabs[3].GetComponent<Tower>().towerStats.towerCost}";
     }
 }

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BasicTower : Tower
 {
-    public Tower tower;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +28,7 @@ public class BasicTower : Tower
     public override void Attack()
     {
         base.Attack();
-        towerTargeter.targetHealth.TakeDamage(tower.Damage());
+        towerTargeter.targetHealth.TakeDamage(Damage());
     }
 
     public override void Level2Upgrade()
