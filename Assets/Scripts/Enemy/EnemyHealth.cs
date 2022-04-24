@@ -12,7 +12,7 @@ public class EnemyHealth : MonoBehaviour
 
     public int mobValue;
 
-    private EnemySpawner spawner;
+    public EnemySpawner spawner;
     private AudioSource speaker;
 
     public GameObject deathExplosionPrefab;
@@ -23,7 +23,7 @@ public class EnemyHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+        //spawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         speaker = GetComponent<AudioSource>();
 
         if (spawner.healthMultiplier > 1)

@@ -9,6 +9,7 @@ public class TowerGrid : MonoBehaviour
     public GameObject towerShopObject;
     public GameObject upgradeShopObject;
     public GameObject towerSlot;
+
     public List<GameObject> towerPrefabs;
 
     public GameObject hologramEffect;

@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 404879944024950021}
   - component: {fileID: 3235779445759036352}
   - component: {fileID: 7346376711734706852}
+  - component: {fileID: 8822142545390881330}
   m_Layer: 0
   m_Name: SlowingTower
   m_TagString: Untagged
@@ -330,6 +331,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8822142545390881330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428333119155479388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6979e22ffaf7bb84082b68ef70486af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerIsPurchasable: 1
 --- !u!1 &2026398288225445626
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,6 +489,7 @@ GameObject:
   - component: {fileID: 1282344058227583719}
   - component: {fileID: 2688106084661539441}
   - component: {fileID: 3007350423167614276}
+  - component: {fileID: 821857419612636274}
   m_Layer: 0
   m_Name: BasicTower
   m_TagString: Untagged
@@ -596,6 +611,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &821857419612636274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2288154744796790171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6979e22ffaf7bb84082b68ef70486af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerIsPurchasable: 1
 --- !u!1 &3131852978988957504
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,6 +1164,7 @@ GameObject:
   - component: {fileID: 1497906824404820510}
   - component: {fileID: 7456971900814650334}
   - component: {fileID: 4153038737878958850}
+  - component: {fileID: 8564907932743608938}
   m_Layer: 0
   m_Name: AOETower
   m_TagString: Untagged
@@ -1257,6 +1286,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8564907932743608938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5861406271518683277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6979e22ffaf7bb84082b68ef70486af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerIsPurchasable: 1
 --- !u!1 &6132148225984883643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1348,6 +1390,7 @@ GameObject:
   - component: {fileID: 5747689343988814257}
   - component: {fileID: 5930159863737554947}
   - component: {fileID: 6584297309735260288}
+  - component: {fileID: 6855659636972470289}
   m_Layer: 0
   m_Name: ArtilleryTower
   m_TagString: Untagged
@@ -1469,6 +1512,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6855659636972470289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518333488153070162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6979e22ffaf7bb84082b68ef70486af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerIsPurchasable: 1
 --- !u!1 &7893842041868741369
 GameObject:
   m_ObjectHideFlags: 0

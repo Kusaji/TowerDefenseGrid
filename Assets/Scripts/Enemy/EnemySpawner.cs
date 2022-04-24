@@ -105,6 +105,7 @@ public class EnemySpawner : MonoBehaviour
 
                 enemyList.activeEnemies.Add(newEnemy);
                 newEnemy.GetComponent<EnemyNavigation>().enemySpawner = this;
+                newEnemy.GetComponent<EnemyHealth>().spawner = this;
                 newEnemy.GetComponent<EnemyNavigation>().playerEconomy = playerEconomy;
                 newEnemy.GetComponent<EnemyHealth>().playerEconomy = playerEconomy;
 
@@ -124,6 +125,7 @@ public class EnemySpawner : MonoBehaviour
 
                 enemyList.activeEnemies.Add(newEnemy);
                 newEnemy.GetComponent<EnemyNavigation>().enemySpawner = this;
+                newEnemy.GetComponent<EnemyHealth>().spawner = this;
                 newEnemy.GetComponent<EnemyNavigation>().playerEconomy = playerEconomy;
                 newEnemy.GetComponent<EnemyHealth>().playerEconomy = playerEconomy;
 
