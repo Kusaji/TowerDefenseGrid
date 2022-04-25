@@ -112,6 +112,11 @@ public class EnemySpawner : MonoBehaviour
 
                 PlaySpawnSound();
 
+                if (currentWave.randomSpawnDelay)
+                {
+                    spawnDelay = currentWave.GetSpawnDelay();
+                }
+
                 yield return new WaitForSeconds(spawnDelay);
             }
             else
@@ -130,6 +135,11 @@ public class EnemySpawner : MonoBehaviour
                 newEnemy.GetComponent<EnemyHealth>().playerEconomy = playerEconomy;
 
                 PlaySpawnSound();
+
+                if (currentWave.randomSpawnDelay)
+                {
+                    spawnDelay = currentWave.GetSpawnDelay();
+                }
 
                 yield return new WaitForSeconds(spawnDelay);
 

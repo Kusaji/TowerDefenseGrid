@@ -34,7 +34,14 @@ public class Economy : MonoBehaviour
         currentHealth = maxHealth;
         healthText.text = $"Health: {currentHealth} | {maxHealth}";
 
-        Time.timeScale = timeScale;
+        if (timeScale > 1)
+        {
+            Time.timeScale = timeScale;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
 
         StartCoroutine(UpdateUIText());
     }

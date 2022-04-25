@@ -12,4 +12,13 @@ public class WaveSO : ScriptableObject
     public float spawnDelay;
     public float waveEndDelay;
     public float healthMultiplier;
+
+    public bool randomSpawnDelay;
+    public float spawnDelayMinimum;
+    public float spawnDelayMaximum;
+
+    public float GetSpawnDelay()
+    {
+        return Random.Range(spawnDelayMinimum, spawnDelayMaximum);
+    }
 }
