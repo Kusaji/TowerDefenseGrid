@@ -5633,7 +5633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3857441672496753068, guid: 26b866dec3ee3bf4489f12464e4608c8, type: 3}
       propertyPath: startingMoney
-      value: 500
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3857441672510366633, guid: 26b866dec3ee3bf4489f12464e4608c8, type: 3}
       propertyPath: m_AnchorMax.y

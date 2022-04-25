@@ -208,7 +208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3857441672496753068, guid: 26b866dec3ee3bf4489f12464e4608c8, type: 3}
       propertyPath: startingMoney
-      value: 500
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3857441672510366633, guid: 26b866dec3ee3bf4489f12464e4608c8, type: 3}
       propertyPath: m_AnchorMax.y
@@ -682,6 +682,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5951929411050001036}
     m_Modifications:
+    - target: {fileID: 1955526636896881960, guid: 5c216836235868749bba03da1042a6ca, type: 3}
+      propertyPath: towerIsPurchasable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4966682745516704760, guid: 5c216836235868749bba03da1042a6ca, type: 3}
       propertyPath: m_Name
       value: TowerGrid
@@ -734,11 +738,19 @@ PrefabInstance:
       propertyPath: towerIsPurchasable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7051355524622679881, guid: 5c216836235868749bba03da1042a6ca, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8564907932743608938, guid: 5c216836235868749bba03da1042a6ca, type: 3}
       propertyPath: towerIsPurchasable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8822142545390881330, guid: 5c216836235868749bba03da1042a6ca, type: 3}
+      propertyPath: towerIsPurchasable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985433640929616562, guid: 5c216836235868749bba03da1042a6ca, type: 3}
       propertyPath: towerIsPurchasable
       value: 0
       objectReference: {fileID: 0}
@@ -869,6 +881,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5951929411050001036}
     m_Modifications:
+    - target: {fileID: 1955526636896881960, guid: 5c216836235868749bba03da1042a6ca, type: 3}
+      propertyPath: towerIsPurchasable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4966682745516704760, guid: 5c216836235868749bba03da1042a6ca, type: 3}
       propertyPath: m_Name
       value: TowerGrid (1)
@@ -921,11 +937,19 @@ PrefabInstance:
       propertyPath: towerIsPurchasable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7051355524622679881, guid: 5c216836235868749bba03da1042a6ca, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8564907932743608938, guid: 5c216836235868749bba03da1042a6ca, type: 3}
       propertyPath: towerIsPurchasable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8822142545390881330, guid: 5c216836235868749bba03da1042a6ca, type: 3}
+      propertyPath: towerIsPurchasable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985433640929616562, guid: 5c216836235868749bba03da1042a6ca, type: 3}
       propertyPath: towerIsPurchasable
       value: 0
       objectReference: {fileID: 0}
@@ -1918,6 +1942,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5951929411050001036}
     m_Modifications:
+    - target: {fileID: 1955526636896881960, guid: 5c216836235868749bba03da1042a6ca, type: 3}
+      propertyPath: towerIsPurchasable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4966682745516704760, guid: 5c216836235868749bba03da1042a6ca, type: 3}
       propertyPath: m_Name
       value: TowerGrid (2)
@@ -1970,11 +1998,19 @@ PrefabInstance:
       propertyPath: towerIsPurchasable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7051355524622679881, guid: 5c216836235868749bba03da1042a6ca, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8564907932743608938, guid: 5c216836235868749bba03da1042a6ca, type: 3}
       propertyPath: towerIsPurchasable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8822142545390881330, guid: 5c216836235868749bba03da1042a6ca, type: 3}
+      propertyPath: towerIsPurchasable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985433640929616562, guid: 5c216836235868749bba03da1042a6ca, type: 3}
       propertyPath: towerIsPurchasable
       value: 0
       objectReference: {fileID: 0}
@@ -3108,6 +3144,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5951929411050001036}
     m_Modifications:
+    - target: {fileID: 1955526636896881960, guid: 5c216836235868749bba03da1042a6ca, type: 3}
+      propertyPath: towerIsPurchasable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4966682745516704760, guid: 5c216836235868749bba03da1042a6ca, type: 3}
       propertyPath: m_Name
       value: TowerGrid (3)
@@ -3160,11 +3200,19 @@ PrefabInstance:
       propertyPath: towerIsPurchasable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7051355524622679881, guid: 5c216836235868749bba03da1042a6ca, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8564907932743608938, guid: 5c216836235868749bba03da1042a6ca, type: 3}
       propertyPath: towerIsPurchasable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8822142545390881330, guid: 5c216836235868749bba03da1042a6ca, type: 3}
+      propertyPath: towerIsPurchasable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985433640929616562, guid: 5c216836235868749bba03da1042a6ca, type: 3}
       propertyPath: towerIsPurchasable
       value: 0
       objectReference: {fileID: 0}
