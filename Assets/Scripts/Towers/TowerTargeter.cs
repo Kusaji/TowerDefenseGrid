@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class TowerTargeter : MonoBehaviour
@@ -54,7 +53,6 @@ public class TowerTargeter : MonoBehaviour
                 var currentEnemy = target.GetComponent<EnemyNavigation>();
                 var newEnemy = other.gameObject.GetComponent<EnemyNavigation>();
                 
-                //var currentEnemyObject = target;
 
                 if (newEnemy.distanceLeft < currentEnemy.distanceLeft)
                 {

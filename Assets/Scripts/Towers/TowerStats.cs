@@ -23,13 +23,15 @@ public class TowerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Setup APS
-        calculatedAPS = 1 / attacksPerSecond;
-        currentLevel = 1;
+        CalculateAPS();
 
         currentLevel = 1;
     }
 
+    public void CalculateAPS()
+    {
+        calculatedAPS = 1 / attacksPerSecond;
+    }
 
     public void PurchaseUpgrade()
     {

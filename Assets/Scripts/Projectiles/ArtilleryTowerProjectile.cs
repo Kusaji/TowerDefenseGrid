@@ -8,6 +8,7 @@ public class ArtilleryTowerProjectile : MonoBehaviour
 
     public GameObject assignedTarget;
     public GameObject initialFlightTarget;
+    public Vector3 initialFlightTargetVector;
 
     public float damage;
     public float initialSpeed;
@@ -77,6 +78,7 @@ public class ArtilleryTowerProjectile : MonoBehaviour
     public IEnumerator FlightRoutine()
     {
         target = initialFlightTarget;
+        initialFlightTargetVector = assignedTarget.transform.position;
         targetPosition = target.transform.position;
 
         currentSpeed = initialSpeed;
@@ -84,7 +86,7 @@ public class ArtilleryTowerProjectile : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         target = assignedTarget;
-        targetPosition = target.transform.position;
+        targetPosition = initialFlightTargetVector;
 
         currentSpeed = flightSpeed;
         StartCoroutine(DistanceToTargetRoutine());

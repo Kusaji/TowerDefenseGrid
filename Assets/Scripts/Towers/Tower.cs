@@ -37,7 +37,6 @@ public class Tower : MonoBehaviour
         }
     }
 
-
     #region Attack
     public virtual void Attack()
     {
@@ -46,6 +45,10 @@ public class Tower : MonoBehaviour
         towerAudio.PlayAttackSound();
     }
 
+    /// <summary>
+    /// Returns a float from a specified range for damage dealt to enemy.
+    /// </summary>
+    /// <returns></returns>
     public float Damage()
     {
         return Random.Range(towerStats.attackDamageFloor, towerStats.attackDamageCeiling);
@@ -64,7 +67,7 @@ public class Tower : MonoBehaviour
                 }
                 else
                 {
-                    
+                    //Do nothing
                 }
             }
             yield return new WaitForFixedUpdate();

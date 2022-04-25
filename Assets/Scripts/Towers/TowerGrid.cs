@@ -35,9 +35,9 @@ public class TowerGrid : MonoBehaviour
 
     }
 
+
     public void OpenShopMenu()
     {
-
         if (emptyGrid)
         {
             towerShopObject.SetActive(true);

@@ -46,7 +46,7 @@ public class PlayerObjectSelector : MonoBehaviour
                 //If we have a selected grid already and click on anything else, close the shop.
                 if (selectedObject != null && selectedObject.CompareTag("TowerGrid"))
                 {
-                    selectedObject.GetComponent<TowerGrid>().CloseShopMenu();
+                    //selectedObject.GetComponent<TowerGrid>().CloseShopMenu();
 
                     //clear selected grid
                     selectedObject = null;
