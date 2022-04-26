@@ -15119,6 +15119,11 @@ MonoBehaviour:
   towerStats: {fileID: 1147943673099121303}
   towerAudio: {fileID: 3467957141945354654}
   attackParticles: {fileID: 546396525633758310}
+  currentTarget: {fileID: 0}
+  baseAttacksPerSecond: 0
+  level2AttacksPerSecond: 0
+  level3AttacksPerSecond: 0
+  maxAttacksPerSecond: 10
 --- !u!114 &1147943673099121303
 MonoBehaviour:
   m_ObjectHideFlags: 0

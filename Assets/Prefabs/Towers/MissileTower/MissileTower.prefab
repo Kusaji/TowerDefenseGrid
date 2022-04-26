@@ -15032,7 +15032,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5925620237698524061}
-  - component: {fileID: -1074222795711860840}
+  - component: {fileID: 3266654043084799155}
   - component: {fileID: 8120207156572146348}
   - component: {fileID: 1708537060950558969}
   - component: {fileID: 5925620237697795713}
@@ -15067,7 +15067,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
---- !u!114 &-1074222795711860840
+--- !u!114 &3266654043084799155
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15076,14 +15076,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5925620237698651913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3751540135987e24189d81384362c498, type: 3}
+  m_Script: {fileID: 11500000, guid: 33a0f5b4ddab59f4e94794c0d6426efe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   towerTargeter: {fileID: 5944106013144527740}
   towerRotationBase: {fileID: 5944106012083369435}
   towerTrackTarget: 0
   towerTrackingSpeed: 0
-  towerAttackRange: 25
+  towerAttackRange: 30
   speaker: {fileID: 5372388266701496020}
   animator: {fileID: 7083720177211186881}
   towerStats: {fileID: 8120207156572146348}
@@ -15091,7 +15091,7 @@ MonoBehaviour:
   attackParticles: {fileID: 2129650641710132577}
   onCooldown: 0
   attackCooldown: 10
-  damage: 20
+  damage: 30
   artilleryProjectile: {fileID: 7506998144537045000, guid: d2eec92650d872041beb23a116ff3c9a, type: 3}
   initialFlightTarget: {fileID: 3569639517201880496}
 --- !u!114 &8120207156572146348
@@ -15128,7 +15128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a66bc0ffdb1a343a87eb573e6d5c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: -1074222795711860840}
+  tower: {fileID: 3266654043084799155}
   shootSound: {fileID: 8300000, guid: e02e58116bb49f6458e4c37b27694848, type: 3}
   upgradeSound: {fileID: 8300000, guid: 50d32d2475573aa4c8cd3905352c2267, type: 3}
 --- !u!33 &5925620237697795713

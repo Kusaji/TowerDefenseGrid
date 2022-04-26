@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArtilleryTowerProjectile : MonoBehaviour
+public class MissileTowerProjectile : MonoBehaviour
 {
     public GameObject target;
 
@@ -24,7 +24,7 @@ public class ArtilleryTowerProjectile : MonoBehaviour
 
     public GameObject explosionPrefab;
     public GameObject enemyHitEffectPrefab;
-    public ArtilleryTower tower;
+    public MissileTower tower;
 
     // Start is called before the first frame update
     void Start()
@@ -51,8 +51,6 @@ public class ArtilleryTowerProjectile : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
     }
-
-
 
     void MoveTowardsTarget()
     {

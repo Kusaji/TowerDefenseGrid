@@ -10,6 +10,7 @@ public class MinigunTower : Tower
     public int baseAttacksPerSecond;
     public int level2AttacksPerSecond;
     public int level3AttacksPerSecond;
+    public float maxAttacksPerSecond;
 
     // Start is called before the first frame update
     void Start()
@@ -52,8 +53,16 @@ public class MinigunTower : Tower
         }
         else if (currentTarget == towerTargeter.target)
         {
-            towerStats.attacksPerSecond += 0.25f;
-            towerStats.CalculateAPS();
+            if (towerStats.attacksPerSecond < maxAttacksPerSecond)
+            {
+                towerStats.attacksPerSecond += 1f;
+                towerStats.CalculateAPS();
+            }
+            else
+            {
+                towerStats.attacksPerSecond = maxAttacksPerSecond;
+                towerStats.CalculateAPS();
+            }
         }
         else if (currentTarget != towerTargeter.target)
         {
@@ -76,6 +85,7 @@ public class MinigunTower : Tower
         base.Level2Upgrade();
 
         baseAttacksPerSecond = 8;
+        maxAttacksPerSecond *= 1.50f;
         towerStats.attacksPerSecond = baseAttacksPerSecond;
 
         towerStats.attackDamageFloor *= 1.25f;
@@ -92,6 +102,8 @@ public class MinigunTower : Tower
         base.Level3Upgrade();
 
         baseAttacksPerSecond = 10;
+        maxAttacksPerSecond *= 1.50f;
+
         towerStats.attacksPerSecond = baseAttacksPerSecond;
 
         towerStats.attackDamageFloor *= 1.25f;

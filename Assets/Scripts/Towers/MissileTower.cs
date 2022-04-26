@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArtilleryTower : Tower
+public class MissileTower : Tower
 {
     [Header("Attack Stats")]
     public bool onCooldown;
@@ -64,7 +64,7 @@ public class ArtilleryTower : Tower
     public new IEnumerator AttackRoutine()
     {
         var projectile = Instantiate(artilleryProjectile, transform.position, Quaternion.identity);
-        var projectileLogic = projectile.GetComponent<ArtilleryTowerProjectile>();
+        var projectileLogic = projectile.GetComponent<MissileTowerProjectile>();
 
         base.Attack();
 

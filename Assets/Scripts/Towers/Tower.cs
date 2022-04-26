@@ -23,6 +23,8 @@ public class Tower : MonoBehaviour
     public TowerAudio towerAudio;
     public ParticleSystem attackParticles;
 
+    private Vector3 lookAtOffset = new Vector3(0.0f, 0.35f, 0.0f);
+
 
     /// <summary>
     /// Used so towers don't "Snap" to targets, and intead smoothly look / follow targets.
@@ -31,7 +33,7 @@ public class Tower : MonoBehaviour
     {
         if (towerTargeter.target != null)
         {
-            Vector3 relativePos = towerTargeter.target.transform.position - towerRotationBase.transform.position;
+            Vector3 relativePos = (towerTargeter.target.transform.position + lookAtOffset) - towerRotationBase.transform.position;
             Quaternion toRotation = Quaternion.LookRotation(relativePos);
             towerRotationBase.transform.rotation = Quaternion.Lerp(towerRotationBase.transform.rotation, toRotation, towerTrackingSpeed * Time.deltaTime);
         }

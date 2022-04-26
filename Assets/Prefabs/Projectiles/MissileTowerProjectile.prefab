@@ -9595,7 +9595,7 @@ GameObject:
   - component: {fileID: 7699328108884259423}
   - component: {fileID: 2111134992517608526}
   m_Layer: 0
-  m_Name: ArtilleryProjectile
+  m_Name: MissileTowerProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
