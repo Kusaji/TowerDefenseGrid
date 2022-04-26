@@ -77,7 +77,7 @@ public class AOETower : Tower
         {
             foreach (EnemyHealth enemy in enemies)
             {
-                enemy.TakeDamage(base.Damage());
+                enemy.TakeDamage(base.Damage(), gameObject);
                 var hitEffect = Instantiate(enemyHitEffectPrefab, enemy.transform.position, Quaternion.identity);
                 Destroy(hitEffect, 2f);
             }

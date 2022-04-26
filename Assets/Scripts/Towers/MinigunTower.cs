@@ -68,7 +68,7 @@ public class MinigunTower : Tower
             towerStats.CalculateAPS();
         }
 
-        towerTargeter.targetHealth.TakeDamage(Damage());
+        towerTargeter.targetHealth.TakeDamage(Damage(), gameObject);
     }
 
     public override void Level2Upgrade()

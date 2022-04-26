@@ -120,6 +120,9 @@ MonoBehaviour:
   spawner: {fileID: 0}
   deathExplosionPrefab: {fileID: 198170, guid: 14e0693baa71ee8419ab0814aede54ec, type: 3}
   playerEconomy: {fileID: 0}
+  ragdollRb: {fileID: 5918968088122710137}
+  ragdollCollider: {fileID: 4107015398926733750}
+  animator: {fileID: 1805884546239303370}
 --- !u!114 &80753716167874622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,9 +290,11 @@ GameObject:
   - component: {fileID: 1805884546236078403}
   - component: {fileID: 1805884546237088605}
   - component: {fileID: 1805884546239303370}
+  - component: {fileID: 5918968088122710137}
+  - component: {fileID: 4107015398926733750}
   m_Layer: 0
   m_Name: RumboModel
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -377,6 +382,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!54 &5918968088122710137
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805884546239303373}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &4107015398926733750
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805884546239303373}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1.2000009, y: 1.4000006, z: 0.6059536}
+  m_Center: {x: -0.00000023841858, y: -0.00000023841858, z: 1.2029768}
 --- !u!1 &5853987891167478181
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,7 +437,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5853987891167478181}
   m_LocalRotation: {x: 0.0000016987324, y: 0.013297414, z: 0.0000028782524, w: -0.99991167}
-  m_LocalPosition: {x: -0.307, y: -0.209, z: -0.008}
+  m_LocalPosition: {x: -0.243, y: -0.224, z: -0.065}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1805884546238967943}

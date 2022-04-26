@@ -132,7 +132,7 @@ public class ArtilleryTowerProjectile : MonoBehaviour
         {
             foreach (EnemyHealth enemy in enemies)
             {
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(damage, gameObject);
 
                 var hitEffect = Instantiate(enemyHitEffectPrefab, enemy.transform.position, Quaternion.identity);
                 Destroy(hitEffect, 2f);

@@ -28,7 +28,7 @@ public class BasicTower : Tower
     public override void Attack()
     {
         base.Attack();
-        towerTargeter.targetHealth.TakeDamage(Damage());
+        towerTargeter.targetHealth.TakeDamage(Damage(), gameObject);
     }
 
     public override void Level2Upgrade()

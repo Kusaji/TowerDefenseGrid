@@ -96,7 +96,7 @@ public class SingleTargetTower : MonoBehaviour
 
                 if (enemyHealth.isAlive)
                 {
-                    controller.target.GetComponent<EnemyHealth>().TakeDamage(Damage());
+                    controller.target.GetComponent<EnemyHealth>().TakeDamage(Damage(), gameObject);
                     ShootEffects();
                     yield return new WaitForSeconds(calculatedAPS);
                 }
