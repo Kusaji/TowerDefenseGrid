@@ -9,6 +9,7 @@ public class TowerGrid : MonoBehaviour
     public GameObject towerShopObject;
     public GameObject upgradeShopObject;
     public GameObject towerSlot;
+    public float spentOnTower;
 
     public List<GameObject> towerPrefabs;
 
@@ -17,6 +18,11 @@ public class TowerGrid : MonoBehaviour
 
     public ShopPriceSetter shopPrice;
     public Text upgradeText;
+
+    public Text attackDamageText;
+    public Text attackRateText;
+    public Text attackRangeText;
+    public Text sellTowerText;
 
     private Tower currentTower;
 
@@ -35,7 +41,6 @@ public class TowerGrid : MonoBehaviour
 
     }
 
-
     public void OpenShopMenu()
     {
         if (emptyGrid)
@@ -47,7 +52,33 @@ public class TowerGrid : MonoBehaviour
         {
             upgradeShopObject.SetActive(true);
             upgradeText.text = $"Upgrade Cost: {currentTower.towerStats.GetUpgradeCost()}";
+            ShowStats();
             currentTower.GetComponent<Tower>().towerTargeter.towerRangeMesh.enabled = true;
+        }
+        else if (!emptyGrid && currentTower.towerStats.currentLevel == 3)
+        {
+            upgradeShopObject.SetActive(true);
+            upgradeText.text = $"Fully Upgraded";
+            ShowStats();
+            currentTower.GetComponent<Tower>().towerTargeter.towerRangeMesh.enabled = true;
+        }
+    }
+
+    public void ShowStats()
+    {
+        attackDamageText.text = $"Damage: {currentTower.towerStats.attackDamageCeiling}";
+        attackRateText.text = $"Attack Rate: {currentTower.towerStats.attacksPerSecond}";
+        attackRangeText.text = $"Attack Range: {currentTower.towerAttackRange}";
+        sellTowerText.text = $"Sell Tower for ${spentOnTower * 0.50f}";
+    }
+
+    public void ShowUpgrade()
+    {
+        if (currentTower.towerStats.currentLevel < 3)
+        {
+            attackDamageText.text = $"Damage: {currentTower.towerStats.attackDamageCeiling * currentTower.towerStats.attackDamageUpgrade}";
+            attackRateText.text = $"Attack Rate: {currentTower.towerStats.attacksPerSecond + currentTower.towerStats.attackRateUpgrade}";
+            attackRangeText.text = $"Attack Range: {currentTower.towerAttackRange * currentTower.towerStats.attackRangeUpgrade}";
         }
     }
 
@@ -70,6 +101,7 @@ public class TowerGrid : MonoBehaviour
         if (emptyGrid && Economy.playerMoney >= selectedTowerCost)
         {
             Economy.playerMoney -= selectedTowerCost;
+            spentOnTower += selectedTowerCost;
 
             Instantiate(
                 towerPrefabs[towerPrefabNum], 
@@ -93,11 +125,26 @@ public class TowerGrid : MonoBehaviour
         if (Economy.playerMoney >= currentTower.towerStats.GetUpgradeCost() && currentTower.towerStats.currentLevel < 3)
         {
             Economy.playerMoney -= currentTower.towerStats.GetUpgradeCost();
+            spentOnTower += currentTower.towerStats.GetUpgradeCost();
+
             currentTower.UpgradeTower();
             CloseShopMenu();
 
             var purchaseFX = Instantiate(purchaseEffect, towerSlot.transform.position, Quaternion.Euler(-90f, 180f, 0.0f), transform);
             Destroy(purchaseFX, 2f);
         }
+    }
+
+    public void SellTower()
+    {
+        spentOnTower *= 0.50f;
+        Economy.playerMoney += (int)spentOnTower;
+        spentOnTower = 0;
+
+        Destroy(towerSlot.transform.GetChild(0).gameObject);
+        emptyGrid = true;
+        hologramEffect.SetActive(true);
+
+        CloseShopMenu();
     }
 }

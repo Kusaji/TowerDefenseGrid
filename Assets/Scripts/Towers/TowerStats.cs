@@ -20,6 +20,11 @@ public class TowerStats : MonoBehaviour
     public GameObject level2Visuals;
     public GameObject level3Visuals;
 
+    [Header("Upgrade Amounts")]
+    public float attackDamageUpgrade;
+    public float attackRangeUpgrade;
+    public float attackRateUpgrade;
+
     // Start is called before the first frame update
     void Start()
     {

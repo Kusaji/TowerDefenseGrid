@@ -15387,6 +15387,9 @@ MonoBehaviour:
   level3UpgradeCost: 200
   level2Visuals: {fileID: 2005812319105055393}
   level3Visuals: {fileID: 1151099637512998586}
+  attackDamageUpgrade: 1.25
+  attackRangeUpgrade: 1.25
+  attackRateUpgrade: 1
 --- !u!114 &3467957141945354654
 MonoBehaviour:
   m_ObjectHideFlags: 0
