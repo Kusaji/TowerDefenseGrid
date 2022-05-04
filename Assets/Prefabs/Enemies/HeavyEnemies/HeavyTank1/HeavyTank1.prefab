@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 4296415841350009043}
   - component: {fileID: 1950538654244909475}
   m_Layer: 0
-  m_Name: MediumTank1
+  m_Name: HeavyTank1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 80753716167874608}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.31883976, y: 0, z: 0.5644981}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2828028527284970384}
@@ -116,6 +116,7 @@ MonoBehaviour:
   maxHealth: 150
   currenthealth: 0
   isAlive: 0
+  mobClass: 2
   mobValue: 25
   spawner: {fileID: 0}
   deathExplosionPrefab: {fileID: 134082, guid: 9aa5439aa8ecdb84187768851bd764f7, type: 3}
@@ -153,7 +154,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 80753716167874608}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Speed: 3.5
   m_Acceleration: 999
   avoidancePriority: 50
@@ -163,7 +164,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: 0.5
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!54 &4296415841350009043
@@ -192,7 +193,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b36e67c5fa6a64e47adae3fc8fe74a63, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -398,7 +399,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5884055667858695295}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.31883976, y: 0.205, z: -0.7914981}
+  m_LocalPosition: {x: 0, y: 0.205, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4617702721760029401}

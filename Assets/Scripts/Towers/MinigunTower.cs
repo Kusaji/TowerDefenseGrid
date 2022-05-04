@@ -77,7 +77,16 @@ public class MinigunTower : Tower
             towerStats.CalculateAPS();
         }
 
-        towerTargeter.targetHealth.TakeDamage(Damage(), gameObject);
+        //If tower is targeting a "Heavy" class mob, deal double damage.
+        //Encourages players to use minigun towers for levels with heavy enemy focus.
+        if (towerTargeter.targetHealth.mobClass == EnemyHealth.mobType.heavy)
+        {
+            towerTargeter.targetHealth.TakeDamage(Damage() * 2, gameObject);
+        }
+        else
+        {
+            towerTargeter.targetHealth.TakeDamage(Damage(), gameObject);
+        }
     }
 
     public override void Level2Upgrade()

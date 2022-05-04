@@ -9,6 +9,8 @@ public class EnemyHealth : MonoBehaviour
     public float maxHealth;
     public float currenthealth;
     public bool isAlive;
+    public enum mobType { light, medium, heavy, boss};
+    public mobType mobClass;
 
     public int mobValue;
 
